@@ -20,9 +20,8 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="image.png" />
 
-  <!-- Styles and Scripts -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/@heroicons/react@2.0.18/outline/check-circle.svg"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -31,135 +30,92 @@
       scroll-behavior: smooth;
     }
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-4px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
     .animate-float {
       animation: float 3s ease-in-out infinite;
     }
   </style>
-  <!-- Hotjar Tracking Code for https://finsrilanka.com -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:6483103,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9Q5EVQK0E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Z9Q5EVQK0E'); // <- сюда твой ID
-</script>
 </head>
 <body class="bg-white text-gray-900">
 
-  <!-- Header -->
-  <header class="bg-[#0F172A] text-white shadow-md fixed top-0 w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-3xl font-extrabold tracking-tight">
-        Fin<span class="text-blue-400">SriLanka</span>
+<header class="bg-[#0F172A] text-white shadow-md fixed top-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-3xl font-extrabold tracking-tight">
+      Fin<span class="text-blue-400">SriLanka</span>
+    </a>
+    <nav class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="#offer" class="relative group"><span>Offers</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+      <a href="#dontsure" class="relative group"><span>Don't know what to choose?</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+      <a href="#about" class="relative group"><span>About</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+      <a href="#faq" class="relative group"><span>FAQ</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+      <a href="#contact" class="relative group"><span>Contact</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+    </nav>
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden bg-[#0F172A] px-6 pb-4">
+    <a href="#offer" class="block py-2 border-b border-gray-700 hover:text-blue-300">Offers</a>
+    <a href="#dontsure" class="block py-2 border-b border-gray-700 hover:text-blue-300">Don't know what to choose?</a>
+    <a href="#about" class="block py-2 border-b border-gray-700 hover:text-blue-300">About</a>
+    <a href="#faq" class="block py-2 border-b border-gray-700 hover:text-blue-300">FAQ</a>
+    <a href="#contact" class="block py-2 hover:text-blue-300">Contact</a>
+  </div>
+  <script>
+    const toggleButton = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = mobileMenu.querySelectorAll('a');
+    toggleButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
+    });
+  </script>
+</header>
+
+<!-- Hero Icons -->
+<section class="relative bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white min-h-screen px-4 pt-32 flex items-center">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+    <div class="max-w-xl text-center lg:text-left">
+      <h1 class="text-5xl font-extrabold leading-tight mb-6">Compare Top Online<br/>Loans<br/>in Sri Lanka</h1>
+      <p class="text-lg text-gray-200 mb-8">Get up to Rs. 200,000 with 0% interest for new users. No paperwork. Instant approval.</p>
+      <a href="#offer" class="inline-block bg-[#1e40af] text-white text-base font-semibold px-8 py-3 rounded hover:bg-[#1e3a8a] transition animate-float">
+        Find My Loan
       </a>
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex space-x-8 text-sm font-medium">
-        <a href="#offer" class="relative group">
-          <span>Offers</span>
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#dontsure" class="relative group">
-          <span>Don't know what to choose?</span>
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#about" class="relative group">
-          <span>About</span>
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#faq" class="relative group">
-          <span>FAQ</span>
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#contact" class="relative group">
-          <span>Contact</span>
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-      </nav>
-      <!-- Burger Button -->
-      <button id="menu-toggle" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
     </div>
-    <!-- Mobile Nav -->
-    <div id="mobile-menu" class="md:hidden hidden bg-[#0F172A] px-6 pb-4">
-      <a href="#offer" class="block py-2 border-b border-gray-700 hover:text-blue-300">Offers</a>
-      <a href="#dontsure" class="block py-2 border-b border-gray-700 hover:text-blue-300">Don't know what to choose?</a>
-      <a href="#about" class="block py-2 border-b border-gray-700 hover:text-blue-300">About</a>
-      <a href="#faq" class="block py-2 border-b border-gray-700 hover:text-blue-300">FAQ</a>
-      <a href="#contact" class="block py-2 hover:text-blue-300">Contact</a>
-    </div>
-  
-    <script>
-      const toggleButton = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const navLinks = mobileMenu.querySelectorAll('a');
-    
-      toggleButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
-      });
-    </script>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white min-h-screen px-4 pt-32 flex items-center">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
-      <!-- Left -->
-      <div class="max-w-xl text-center lg:text-left">
-        <h1 class="text-5xl font-extrabold leading-tight mb-6">Compare Top Online<br/>Loans<br/>in Sri Lanka</h1>
-        <p class="text-lg text-gray-200 mb-8">Get up to Rs. 200,000 with 0% interest for new users. No paperwork. Instant approval.</p>
-        <a href="#offer" class="inline-block bg-[#1e40af] text-white text-base font-semibold px-8 py-3 rounded hover:bg-[#1e3a8a] transition animate-float">
-          Find My Loan
-        </a>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
+      <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+        <img src="icons/file-description.svg" alt="No Documents Icon" class="w-10 h-10 mb-3 inline-block svg-green" />
+        <h3 class="font-semibold text-white text-lg">No Documents</h3>
+        <p class="text-sm text-gray-300">Just NIC & Bank Account</p>
       </div>
-
-      <!-- Features -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
-        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/file-description.svg" class="w-10 h-10 mb-3 inline-block svg-green" />          <h3 class="font-semibold text-white text-lg">No Documents</h3>
-          <p class="text-sm text-gray-300">Just NIC & Bank Account</p>
-        </div>
-        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/bolt.svg" alt="bolt icon" class="w-10 h-10 text-yellow-300 mb-3 inline-block" />
-                    <h3 class="font-semibold text-white text-lg">Instant Approval</h3>
-          <p class="text-sm text-gray-300">Get verified in minutes</p>
-        </div>
-        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/currency-rupee.svg" class="w-10 h-10 mb-3 inline-block svg-green" />          <h3 class="font-semibold text-white text-lg">0% First Loan</h3>
-          <p class="text-sm text-gray-300">Exclusive to new users</p>
-        </div>
-        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/shield-lock.svg" class="w-10 h-10 mb-3 inline-block svg-green" />          <h3 class="font-semibold text-white text-lg">Secure & Verified</h3>
-          <p class="text-sm text-gray-300">From trusted lenders</p>
-        </div>
+      <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+        <img src="icons/bolt.svg" alt="Instant Approval Icon" class="w-10 h-10 text-yellow-300 mb-3 inline-block" />
+        <h3 class="font-semibold text-white text-lg">Instant Approval</h3>
+        <p class="text-sm text-gray-300">Get verified in minutes</p>
+      </div>
+      <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+        <img src="icons/currency-rupee.svg" alt="0% First Loan Icon" class="w-10 h-10 mb-3 inline-block svg-green" />
+        <h3 class="font-semibold text-white text-lg">0% First Loan</h3>
+        <p class="text-sm text-gray-300">Exclusive to new users</p>
+      </div>
+      <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+        <img src="icons/shield-lock.svg" alt="Secure & Verified Icon" class="w-10 h-10 mb-3 inline-block svg-green" />
+        <h3 class="font-semibold text-white text-lg">Secure & Verified</h3>
+        <p class="text-sm text-gray-300">From trusted lenders</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Дальнейшие блоки (Offers, FAQ и др.) — просто добавь alt="Checkmark icon" к check.svg -->
+<!-- Например: -->
+<!-- <img src="icons/check.svg" alt="Checkmark icon" class="w-6 h-6 mb-3 inline-block svg-green" /> -->
+
+
     <!-- Offers Section (Обновлённая часть) -->
     <section id="offer" class="py-24 bg-gray-50">
       <div class="max-w-7xl mx-auto px-6 text-center">
