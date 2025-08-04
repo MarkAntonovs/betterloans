@@ -70,6 +70,7 @@
       <a href="/" class="text-3xl font-extrabold tracking-tight">
         Fin<span class="text-blue-400">SriLanka</span>
       </a>
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex space-x-8 text-sm font-medium">
         <a href="#offer" class="relative group">
           <span>Offers</span>
@@ -92,20 +93,35 @@
           <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </a>
       </nav>
+      <!-- Burger Button -->
       <button id="menu-toggle" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16"/>
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
+    <!-- Mobile Nav -->
     <div id="mobile-menu" class="md:hidden hidden bg-[#0F172A] px-6 pb-4">
-      <a href="#offers" class="block py-2 border-b border-gray-700 hover:text-blue-300">Offers</a>
+      <a href="#offer" class="block py-2 border-b border-gray-700 hover:text-blue-300">Offers</a>
+      <a href="#dontsure" class="block py-2 border-b border-gray-700 hover:text-blue-300">Don't know what to choose?</a>
+      <a href="#about" class="block py-2 border-b border-gray-700 hover:text-blue-300">About</a>
       <a href="#faq" class="block py-2 border-b border-gray-700 hover:text-blue-300">FAQ</a>
       <a href="#contact" class="block py-2 hover:text-blue-300">Contact</a>
     </div>
+  
     <script>
-      document.getElementById('menu-toggle').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
+      const toggleButton = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navLinks = mobileMenu.querySelectorAll('a');
+    
+      toggleButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
       });
     </script>
   </header>
