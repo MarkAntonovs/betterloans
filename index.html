@@ -40,11 +40,30 @@
     .animate-float{animation:float 3s ease-in-out infinite}
 
     /* Unify card heights & CTA location */
-    .offer-card{display:flex;flex-direction:column;height:100%}
+    .offer-card{display:flex;flex-direction:column;height:100%;will-change:transform}
     .offer-features{flex:1}
     .offer-cta{margin-top:auto}
+
     /* Subtle focus ring for a11y */
     .focus-ring:focus{outline:3px solid #93c5fd;outline-offset:2px}
+
+    /* Mobile menu: transform/opacity (no layout thrash) */
+    #mobile-menu{
+      transform:translateY(-8px);
+      opacity:0;
+      visibility:hidden;
+      transition:transform .18s ease,opacity .18s ease,visibility 0s linear .18s;
+      will-change:transform,opacity
+    }
+    #mobile-menu.is-open{
+      transform:translateY(0);
+      opacity:1;
+      visibility:visible;
+      transition:transform .18s ease,opacity .18s ease,visibility 0s
+    }
+
+    /* Large sections: delay layout/paint until needed */
+    .cv{content-visibility:auto;contain-intrinsic-size:1px 1000px}
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -58,22 +77,48 @@
         Fin<span class="text-blue-400">SriLanka</span>
       </a>
       <nav class="hidden md:flex space-x-8 text-sm font-medium">
-        <a href="#offer" class="relative group"><span>Offers</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
-        <a href="#dontsure" class="relative group"><span>Match Me</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
-        <a href="#how-it-works" class="relative group"><span>How it works</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
-        <a href="#who-can-apply" class="relative group"><span>Eligibility</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
-        <a href="#about" class="relative group"><span>About</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
-        <a href="#faq" class="relative group"><span>FAQ</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
-        <a href="#policies" class="relative group"><span>Policies</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
-        <a href="#contact" class="relative group"><span>Contact</span><span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+        <!-- underline via transform (no width anim) -->
+        <a href="#offer" class="relative group">
+          <span>Offers</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
+        <a href="#dontsure" class="relative group">
+          <span>Match Me</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
+        <a href="#how-it-works" class="relative group">
+          <span>How it works</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
+        <a href="#who-can-apply" class="relative group">
+          <span>Eligibility</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
+        <a href="#about" class="relative group">
+          <span>About</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
+        <a href="#faq" class="relative group">
+          <span>FAQ</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
+        <a href="#policies" class="relative group">
+          <span>Policies</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
+        <a href="#contact" class="relative group">
+          <span>Contact</span>
+          <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 will-change-transform"></span>
+        </a>
       </nav>
-      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Toggle navigation menu">
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
           <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-[#0F172A] px-6 pb-4">
+    <!-- use transform/opacity, not display:none -->
+    <div id="mobile-menu" class="md:hidden bg-[#0F172A] px-6 pb-4">
       <a href="#offer" class="block py-2 border-b border-gray-700 hover:text-blue-300">Offers</a>
       <a href="#dontsure" class="block py-2 border-b border-gray-700 hover:text-blue-300">Match Me</a>
       <a href="#about" class="block py-2 border-b border-gray-700 hover:text-blue-300">About</a>
@@ -82,16 +127,21 @@
       <a href="#contact" class="block py-2 hover:text-blue-300">Contact</a>
     </div>
     <script>
-      const toggleButton=document.getElementById('menu-toggle');
-      const mobileMenu=document.getElementById('mobile-menu');
-      const navLinks=mobileMenu.querySelectorAll('a');
-      toggleButton.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
-      navLinks.forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.add('hidden')));
+      const btn = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const links = menu.querySelectorAll('a');
+      const closeMenu = () => { menu.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); };
+      btn.addEventListener('click', () => {
+        const open = !menu.classList.contains('is-open');
+        menu.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      links.forEach(a => a.addEventListener('click', closeMenu));
     </script>
   </header>
 
   <!-- Hero -->
-  <section class="relative bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white min-h-screen px-4 pt-32 flex items-center">
+  <section class="relative bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white min-h-screen px-4 pt-32 flex items-center cv">
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
       <div class="max-w-xl text-center lg:text-left">
         <h1 class="text-5xl font-extrabold leading-tight mb-6">
@@ -108,22 +158,22 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
         <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/file-description.svg" alt="Digital application icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/file-description.svg" alt="Digital application icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <p class="font-semibold text-white text-lg">Digital Application</p>
           <p class="text-sm text-gray-300">Basic ID and bank verification required</p>
         </div>
         <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/bolt.svg" alt="Fast decision icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/bolt.svg" alt="Fast decision icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <p class="font-semibold text-white text-lg">Fast Decisions</p>
           <p class="text-sm text-gray-300">Typical decisions within minutes (may vary)</p>
         </div>
         <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/currency-rupee.svg" alt="Intro offer icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/currency-rupee.svg" alt="Intro offer icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <p class="font-semibold text-white text-lg">Intro 0% Offers</p>
           <p class="text-sm text-gray-300">For first‑time borrowers where available</p>
         </div>
         <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
-          <img src="icons/shield-lock.svg" alt="Licensed providers icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/shield-lock.svg" alt="Licensed providers icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <p class="font-semibold text-white text-lg">Licensed Providers</p>
           <p class="text-sm text-gray-300">Always review lender terms</p>
         </div>
@@ -132,71 +182,71 @@
   </section>
 
   <!-- Offers -->
-  <section id="offer" class="py-24 bg-gray-50">
+  <section id="offer" class="py-24 bg-gray-50 cv">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-extrabold text-[#0f172a] mb-6">Top Offers</h2>
       <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">Choose from providers in Sri Lanka. Terms and availability vary by lender.</p>
 
       <div class="flex flex-wrap justify-center gap-8">
 
-        <!-- Card Template applied everywhere -->
-
         <!-- FINO -->
         <div class="relative w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 border-2 border-blue-600 offer-card">
           <div class="absolute -top-3 left-4 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">Popular</div>
-          <img src="logos/fino.png" alt="Fino.lk Logo" class="h-9 mb-5 mx-auto" />
+          <img src="logos/fino.png" alt="Fino.lk Logo" class="h-9 mb-5 mx-auto" loading="lazy" />
           <h3 class="text-lg font-bold text-center mb-3 text-gray-800">Fino.lk</h3>
           <ul class="text-sm text-gray-600 space-y-2 mb-4 text-left offer-features">
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Intro offer: up to Rs. 20,000 at 0% </li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Loan range: Rs. 3,000 – Rs. 150,000</li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Term: <strong>65 – 180 days</strong></li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Typical decision: ~10 minutes (may vary)</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Intro offer: up to Rs. 20,000 at 0% </li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Loan range: Rs. 3,000 – Rs. 150,000</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Term: <strong>65 – 180 days</strong></li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Typical decision: ~10 minutes </li>
           </ul>
           <div class="offer-cta">
             <a href="https://clickcrafter.eu/fino.lk/9is4591jin" class="block text-center text-white bg-[#1e40af] py-2 rounded-lg font-medium hover:bg-[#1e3a8a] transition focus-ring">Apply Now</a>
             <p class="text-xs text-gray-500 mt-2">Rates & terms vary. See lender T&Cs.</p>
           </div>
         </div>
-   <!-- Oncredit -->
-   <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 offer-card">
-    <img src="logos/oncredit.png" alt="Oncredit Logo" class="h-9 mb-5 mx-auto" />
-    <h3 class="text-lg font-bold text-center mb-3 text-gray-800">Oncredit</h3>
-    <ul class="text-sm text-gray-600 space-y-2 mb-4 text-left offer-features">
-      <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Intro 0% up to Rs. 50,000</li>
-      <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Loan range: Rs. 2,000 – Rs. 100,000</li>
-      <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Term: <strong>65 – 180 days</strong></li>
-      <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Typical approval within ~15 minutes (may vary)</li>
-    </ul>
-    <div class="offer-cta">
-      <a href="https://clickcrafter.eu/oncredit.lk/9is4591jin" class="block text-center text-white bg-[#1e40af] py-2 rounded-lg font-medium hover:bg-[#1e3a8a] transition focus-ring">Apply Now</a>
-      <p class="text-xs text-gray-500 mt-2">Rates & terms vary. See lender T&Cs.</p>
-    </div>
-  </div>
-        <!-- Monego (was Monigo) -->
+
+        <!-- Oncredit -->
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 offer-card">
-          <img src="logos/monigo.png" alt="Monego Logo" class="h-9 mb-5 mx-auto" />
+          <img src="logos/oncredit.png" alt="Oncredit Logo" class="h-9 mb-5 mx-auto" loading="lazy" />
+          <h3 class="text-lg font-bold text-center mb-3 text-gray-800">Oncredit</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-4 text-left offer-features">
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Intro 0% up to Rs. 50,000</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Loan range: Rs. 2,000 – Rs. 100,000</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Term: <strong>65 – 180 days</strong></li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Typical approval within ~15 minutes</li>
+          </ul>
+          <div class="offer-cta">
+            <a href="https://clickcrafter.eu/oncredit.lk/9is4591jin" class="block text-center text-white bg-[#1e40af] py-2 rounded-lg font-medium hover:bg-[#1e3a8a] transition focus-ring">Apply Now</a>
+            <p class="text-xs text-gray-500 mt-2">Rates & terms vary. See lender T&Cs.</p>
+          </div>
+        </div>
+
+        <!-- Monigo -->
+        <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 offer-card">
+          <img src="logos/monigo.png" alt="Monego Logo" class="h-9 mb-5 mx-auto" loading="lazy" />
           <h3 class="text-lg font-bold text-center mb-3 text-gray-800">Monigo</h3>
           <ul class="text-sm text-gray-600 space-y-2 mb-4 text-left offer-features">
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Loan range: Rs. 3,000 – Rs. 150,000</li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Starting amount: Rs. 20,000</li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Term: <strong>65 – 120 days</strong></li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Most decisions within ~60 minutes</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Loan range: Rs. 3,000 – Rs. 150,000</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Starting amount: Rs. 20,000</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Term: <strong>65 – 120 days</strong></li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Most decisions within ~60 minutes</li>
           </ul>
           <div class="offer-cta">
             <a href="https://clickcrafter.eu/monigo.lk/9is4591jin" class="block text-center text-white bg-[#1e40af] py-2 rounded-lg font-medium hover:bg-[#1e3a8a] transition focus-ring">Apply Now</a>
             <p class="text-xs text-gray-500 mt-2">Rates & terms vary. See lender T&Cs.</p>
           </div>
         </div>
-     
+
         <!-- CashX -->
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 offer-card">
-          <img src="logos/cashx.png" alt="CashX Logo" class="h-9 mb-5 mx-auto" />
+          <img src="logos/cashx.png" alt="CashX Logo" class="h-9 mb-5 mx-auto" loading="lazy" />
           <h3 class="text-lg font-bold text-center mb-3 text-gray-800">CashX</h3>
           <ul class="text-sm text-gray-600 space-y-2 mb-4 text-left offer-features">
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Intro 0% up to Rs. 200,000 </li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Loan range: Rs. 5,000 – Rs. 200,000</li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Term: <strong>65 – 120 days</strong></li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Typical decision: ~15 minutes (may vary)</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Intro 0% up to Rs. 200,000 </li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Loan range: Rs. 5,000 – Rs. 200,000</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Term: <strong>65 – 120 days</strong></li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Typical decision: ~15 minutes </li>
           </ul>
           <div class="offer-cta">
             <a href="https://clickcrafter.eu/cashx.lk/9is4591jin" class="block text-center text-white bg-[#1e40af] py-2 rounded-lg font-medium hover:bg-[#1e3a8a] transition focus-ring">Apply Now</a>
@@ -206,13 +256,13 @@
 
         <!-- LoanPlus -->
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 offer-card">
-          <img src="logos/loanplus.png" alt="LoanPlus Logo" class="h-9 mb-5 mx-auto" />
+          <img src="logos/loanplus.png" alt="LoanPlus Logo" class="h-9 mb-5 mx-auto" loading="lazy" />
           <h3 class="text-lg font-bold text-center mb-3 text-gray-800">LoanPlus</h3>
           <ul class="text-sm text-gray-600 space-y-2 mb-4 text-left offer-features">
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Intro 0% up to Rs. 200,000 </li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Loan range: Rs. 5,000 – Rs. 200,000</li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Term: <strong>65 – 120 days</strong></li>
-            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="">Typical decision: ~10 minutes (may vary)</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Intro 0% up to Rs. 200,000 </li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Loan range: Rs. 5,000 – Rs. 200,000</li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Term: <strong>65 – 120 days</strong></li>
+            <li class="flex items-start gap-2"><img src="icons/check.svg" class="w-5 h-5 mt-0.5" alt="" loading="lazy">Typical decision: ~10 minutes (may vary)</li>
           </ul>
           <div class="offer-cta">
             <a href="https://clickcrafter.eu/loanplus.lk/9is4591jin" class="block text-center text-white bg-[#1e40af] py-2 rounded-lg font-medium hover:bg-[#1e3a8a] transition focus-ring">Apply Now</a>
@@ -224,7 +274,7 @@
   </section>
 
   <!-- Match Me -->
-  <section id="dontsure" class="bg-white py-20 pb-0 px-6">
+  <section id="dontsure" class="bg-white py-20 pb-0 px-6 cv">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Let us guide you to the right loan</h2>
       <p class="text-lg text-gray-600 mb-10">Simple. Quick. Tailored suggestions.</p>
@@ -254,7 +304,7 @@
   </section>
 
   <!-- How it works -->
-  <section id="how-it-works" class="py-28 bg-white">
+  <section id="how-it-works" class="py-28 bg-white cv">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 class="text-4xl font-extrabold text-[#0f172a] mb-4">How Online Loans Work in Sri Lanka (2025)</h2>
@@ -265,19 +315,19 @@
 
       <div class="flex flex-wrap justify-center gap-8">
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-          <img src="icons/form.svg" alt="Loan application icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/form.svg" alt="Loan application icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <h3 class="text-lg font-bold text-gray-800 mb-2">1. Complete a short form</h3>
           <p class="text-sm text-gray-600">No in‑person paperwork. Lenders may request additional information as needed.</p>
         </div>
 
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-          <img src="icons/approval.svg" alt="Verification icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/approval.svg" alt="Verification icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <h3 class="text-lg font-bold text-gray-800 mb-2">2. Quick verification</h3>
           <p class="text-sm text-gray-600">NIC and bank account checks are performed digitally. Decisions are typically fast but can vary.</p>
         </div>
 
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-          <img src="icons/cash.svg" alt="Disbursement icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/cash.svg" alt="Disbursement icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <h3 class="text-lg font-bold text-gray-800 mb-2">3. Funds to your bank</h3>
           <p class="text-sm text-gray-600">Approved funds are deposited to your Sri Lankan bank account. Some lenders offer same‑day disbursement.</p>
         </div>
@@ -286,7 +336,7 @@
   </section>
 
   <!-- Who can apply -->
-  <section id="who-can-apply" class="py-28 bg-white">
+  <section id="who-can-apply" class="py-28 bg-white cv">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 class="text-4xl font-extrabold text-[#0f172a] mb-4">Who Can Apply for an Online Loan?</h2>
@@ -297,19 +347,19 @@
 
       <div class="flex flex-wrap justify-center gap-8">
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-          <img src="icons/id-card.svg" alt="ID card icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/id-card.svg" alt="ID card icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <h3 class="text-lg font-bold text-gray-800 mb-2">Sri Lankan NIC</h3>
           <p class="text-sm text-gray-600">A valid National Identity Card is required to verify your identity.</p>
         </div>
 
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-          <img src="icons/bank.svg" alt="Bank account icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/bank.svg" alt="Bank account icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <h3 class="text-lg font-bold text-gray-800 mb-2">Active Bank Account</h3>
           <p class="text-sm text-gray-600">A Sri Lankan bank account is needed to receive the funds.</p>
         </div>
 
         <div class="w-[360px] rounded-2xl shadow-lg p-6 bg-white hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-          <img src="icons/age.svg" alt="Age requirement icon" class="w-10 h-10 mb-3 inline-block" />
+          <img src="icons/age.svg" alt="Age requirement icon" class="w-10 h-10 mb-3 inline-block" loading="lazy" />
           <h3 class="text-lg font-bold text-gray-800 mb-2">Age 18–60</h3>
           <p class="text-sm text-gray-600">Some lenders may have different age limits or additional criteria.</p>
         </div>
@@ -322,7 +372,7 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="bg-white py-24 px-6">
+  <section id="about" class="bg-white py-24 px-6 cv">
     <div class="max-w-4xl mx-auto text-left">
       <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">About Online Loans in Sri Lanka</h2>
       <p class="text-gray-700 text-lg mb-6">
@@ -342,7 +392,7 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="bg-gray-50 py-24 px-6">
+  <section id="faq" class="bg-gray-50 py-24 px-6 cv">
     <div class="max-w-4xl mx-auto text-center mb-16">
       <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h2>
       <p class="text-gray-600">Answers to common questions about online loans in Sri Lanka.</p>
@@ -392,34 +442,34 @@
   </section>
 
   <!-- Loan Information Section -->
-<section id="policies"style="background-color: #f8f9fa; padding: 50px 20px; border-top: 1px solid #ddd; font-family: Arial, sans-serif;">
-  <div style="max-width: 900px; margin: 0 auto; color: #333;">
-    <h2 style="font-size: 26px; margin-bottom: 15px; font-weight: 600; color: #222;">Loan Information</h2>
-    <p style="margin-bottom: 15px; font-size: 16px; line-height: 1.6;">
-      We provide independent information about loan offers.
-      We are not a lender and do not make credit decisions. All terms and final decisions are made directly by the lender.
-    </p>
+  <section id="policies" class="cv" style="background-color:#f8f9fa;padding:50px 20px;border-top:1px solid #ddd;font-family:Arial,sans-serif;">
+    <div style="max-width:900px;margin:0 auto;color:#333;">
+      <h2 style="font-size:26px;margin-bottom:15px;font-weight:600;color:#222;">Loan Information</h2>
+      <p style="margin-bottom:15px;font-size:16px;line-height:1.6;">
+        We provide independent information about loan offers.
+        We are not a lender and do not make credit decisions. All terms and final decisions are made directly by the lender.
+      </p>
 
-    <h3 style="font-size: 20px; margin-bottom: 10px; color: #222;">Key Terms</h3>
-    <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-size: 15px;">
-      <li>Loan term: from <strong>65</strong> to <strong>360</strong> days</li>
-      <li>Maximum Annual Percentage Rate (APR): <strong>24%</strong></li>
-      <li>Example: A loan of €1,000 for 90 days at 24% APR → interest is approximately €59.18, total repayment amount is €1,059.18</li>
-    </ul>
+      <h3 style="font-size:20px;margin-bottom:10px;color:#222;">Key Terms</h3>
+      <ul style="margin-bottom:20px;padding-left:20px;line-height:1.6;font-size:15px;">
+        <li>Loan term: from <strong>65</strong> to <strong>360</strong> days</li>
+        <li>Maximum Annual Percentage Rate (APR): <strong>24%</strong></li>
+        <li>Example: A loan of €1,000 for 90 days at 24% APR → interest is approximately €59.18, total repayment amount is €1,059.18</li>
+      </ul>
 
-    <h3 style="font-size: 20px; margin-bottom: 10px; color: #222;">Important Information</h3>
-    <p style="margin-bottom: 15px; font-size: 15px; line-height: 1.6;">
-      Before applying for a loan, carefully review the terms provided by the specific lender. 
-      Check the repayment schedule, interest rate, and any applicable fees. 
-      Do not take a loan if you are unsure about your ability to repay it on time.
-    </p>
+      <h3 style="font-size:20px;margin-bottom:10px;color:#222;">Important Information</h3>
+      <p style="margin-bottom:15px;font-size:15px;line-height:1.6;">
+        Before applying for a loan, carefully review the terms provided by the specific lender. 
+        Check the repayment schedule, interest rate, and any applicable fees. 
+        Do not take a loan if you are unsure about your ability to repay it on time.
+      </p>
 
-    <p style="font-size: 14px; color: #555; line-height: 1.6;">
-      Disclaimer: This website is for informational purposes only. We receive a commission for clicks on affiliate links. 
-      Loan terms and application approvals are determined by the lenders and may change without notice.
-    </p>
-  </div>
-</section>
+      <p style="font-size:14px;color:#555;line-height:1.6;">
+        Disclaimer: This website is for informational purposes only. We receive a commission for clicks on affiliate links. 
+        Loan terms and application approvals are determined by the lenders and may change without notice.
+      </p>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer id="contact" class="bg-[#0f172a] text-white py-10 text-center">
