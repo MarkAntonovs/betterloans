@@ -40,7 +40,20 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
-
+  <style>
+    :root{--header-h:64px}
+    h1{font-size:clamp(2.25rem,1.2rem + 2.2vw,3rem);line-height:1.12;font-weight:800;margin:0 0 .5em}
+    h2{font-size:clamp(1.75rem,1.05rem + 1.4vw,2.25rem);line-height:1.18;font-weight:800;margin:0 0 .5em}
+    h3{font-size:clamp(1.25rem,1rem + .6vw,1.5rem);line-height:1.25;font-weight:700;margin:0 0 .5em}
+    h4{font-size:1.125rem;line-height:1.35;font-weight:700;margin:0 0 .5em}
+    h5{font-size:1rem;line-height:1.4;font-weight:600;margin:0 0 .5em}
+    h6{font-size:.875rem;line-height:1.4;font-weight:600;margin:0 0 .5em}
+    :where(section,article,nav,aside) h1{font-size:clamp(2.25rem,1.2rem + 2.2vw,3rem)}
+    :where(section,article,nav,aside) h2{font-size:clamp(1.75rem,1.05rem + 1.4vw,2.25rem)}
+    :where(section,article,nav,aside) h3{font-size:clamp(1.25rem,1rem + .6vw,1.5rem)}
+    .sub{color:#334155} /* повышаем контраст на светлом фоне */
+    @media (max-width:768px){ :root{--header-h:58px} }
+  </style>
 
 
   <!-- App styles -->
