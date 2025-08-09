@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P3JBMP5M');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Compare Online Loans in Sri Lanka | FinSriLanka</title>
-  <meta name="description" content="Compare online loans in Sri Lanka from licensed providers. Digital application, fast decisions, and transparent costs. FinSriLanka is not a lender." />
-  <link rel="canonical" href="https://finsrilanka.com/" />
+  <meta name="description" content="Compare online loans in Sri Lanka from licensed providers. Digital application, fast decisions, and transparent costs. FinSriLanka is not a lender.">
+  <link rel="canonical" href="https://finsrilanka.com/">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Compare Online Loans in Sri Lanka | FinSriLanka" />
-  <meta property="og:description" content="Compare licensed providers in Sri Lanka. Digital application and fast decisions (times vary by lender). Transparent terms and costs." />
-  <meta property="og:image" content="https://finsrilanka.com/preview.png" />
-  <meta property="og:url" content="https://finsrilanka.com/" />
-  <meta property="og:type" content="website" />
+  <!-- Social -->
+  <meta property="og:title" content="Compare Online Loans in Sri Lanka | FinSriLanka">
+  <meta property="og:description" content="Compare licensed providers in Sri Lanka. Digital application and fast decisions (times vary by lender). Transparent terms and costs.">
+  <meta property="og:image" content="https://finsrilanka.com/preview.png">
+  <meta property="og:url" content="https://finsrilanka.com/">
+  <meta property="og:type" content="website">
 
-  <!-- Icons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Performance hints -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//www.google-analytics.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
-  <!-- Fonts -->
+  <!-- Fonts (swap) -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
 
-  <!-- Styles -->
-  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  <!-- Critical: явные размеры заголовков (убирает warning про deprecated API) + контраст .sub -->
+  <style>
+    :root{--header-h:64px}
+    h1{font-size:clamp(2.25rem,1.2rem + 2.2vw,3rem);line-height:1.12;font-weight:800;margin:0 0 .5em}
+    h2{font-size:clamp(1.75rem,1.05rem + 1.4vw,2.25rem);line-height:1.18;font-weight:800;margin:0 0 .5em}
+    h3{font-size:clamp(1.25rem,1rem + .6vw,1.5rem);line-height:1.25;font-weight:700;margin:0 0 .5em}
+    h4{font-size:1.125rem;line-height:1.35;font-weight:700;margin:0 0 .5em}
+    h5{font-size:1rem;line-height:1.4;font-weight:600;margin:0 0 .5em}
+    h6{font-size:.875rem;line-height:1.4;font-weight:600;margin:0 0 .5em}
+    :where(section,article,nav,aside) h1{font-size:clamp(2.25rem,1.2rem + 2.2vw,3rem)}
+    :where(section,article,nav,aside) h2{font-size:clamp(1.75rem,1.05rem + 1.4vw,2.25rem)}
+    :where(section,article,nav,aside) h3{font-size:clamp(1.25rem,1rem + .6vw,1.5rem)}
+    .sub{color:#334155} /* повышаем контраст на светлом фоне */
+    @media (max-width:768px){ :root{--header-h:58px} }
+  </style>
 
-  <!-- Lazy GTM/GA will be injected from script.js (см. нижe) -->
-  <script defer src="script.js"></script>
+  <!-- App styles -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- GTM noscript (можно оставить для no-JS; основная инициализация — ленивая) -->
+  <!-- GTM noscript -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3JBMP5M" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- ======= HEADER ======= -->
   <header>
     <div class="container nav-row">
       <a href="/" class="brand">Fin<span>SriLanka</span></a>
 
       <nav class="nav" aria-label="Main">
-        <a href="#offer">Offers</a>
-        <a href="#dontsure">Match Me</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#who-can-apply">Eligibility</a>
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
-        <a href="#policies">Policies</a>
-        <a href="#contact">Contact</a>
+        <a href="#offer">Offers</a><a href="#dontsure">Match Me</a><a href="#how-it-works">How it works</a>
+        <a href="#who-can-apply">Eligibility</a><a href="#about">About</a><a href="#faq">FAQ</a>
+        <a href="#policies">Policies</a><a href="#contact">Contact</a>
       </nav>
 
       <button id="menu-toggle" class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
@@ -69,19 +86,14 @@
 
     <div id="mobile-menu" aria-hidden="true">
       <div class="container">
-        <a href="#offer">Offers</a>
-        <a href="#dontsure">Match Me</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#who-can-apply">Eligibility</a>
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
-        <a href="#policies">Policies</a>
-        <a href="#contact">Contact</a>
+        <a href="#offer">Offers</a><a href="#dontsure">Match Me</a><a href="#how-it-works">How it works</a>
+        <a href="#who-can-apply">Eligibility</a><a href="#about">About</a><a href="#faq">FAQ</a>
+        <a href="#policies">Policies</a><a href="#contact">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- ======= HERO ======= -->
+  <!-- HERO -->
   <section class="hero cv">
     <div class="container hero-row">
       <div>
@@ -91,24 +103,24 @@
         <div class="note">FinSriLanka is a comparison website and is not a lender.</div>
       </div>
 
-      <div class="glass-grid">
+      <div class="glass-grid" aria-hidden="true">
         <div class="glass">
-          <img src="icons/file-description.svg" alt="" width="40" height="40" loading="lazy" decoding="async" style="margin:0 auto 10px">
+          <img src="icons/file-description.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
           <div style="font-weight:700;color:#fff">Digital Application</div>
           <div style="color:#cbd5e1;font-size:14px">Basic ID and bank verification required</div>
         </div>
         <div class="glass">
-          <img src="icons/bolt.svg" alt="" width="40" height="40" loading="lazy" decoding="async" style="margin:0 auto 10px">
+          <img src="icons/bolt.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
           <div style="font-weight:700;color:#fff">Fast Decisions</div>
           <div style="color:#cbd5e1;font-size:14px">Typical decisions within minutes (may vary)</div>
         </div>
         <div class="glass">
-          <img src="icons/currency-rupee.svg" alt="" width="40" height="40" loading="lazy" decoding="async" style="margin:0 auto 10px">
+          <img src="icons/currency-rupee.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
           <div style="font-weight:700;color:#fff">Intro 0% Offers</div>
           <div style="color:#cbd5e1;font-size:14px">For first‑time borrowers where available</div>
         </div>
         <div class="glass">
-          <img src="icons/shield-lock.svg" alt="" width="40" height="40" loading="lazy" decoding="async" style="margin:0 auto 10px">
+          <img src="icons/shield-lock.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
           <div style="font-weight:700;color:#fff">Licensed Providers</div>
           <div style="color:#cbd5e1;font-size:14px">Always review lender terms</div>
         </div>
@@ -116,24 +128,19 @@
     </div>
   </section>
 
-  <!-- ======= OFFERS ======= -->
+  <!-- OFFERS -->
   <section id="offer" class="section light cv">
     <div class="container center">
       <h2>Top Offers</h2>
       <p class="sub">Choose from providers in Sri Lanka. Terms and availability vary by lender.</p>
 
       <div class="offers">
-        <!-- FINO -->
+        <!-- Fino -->
         <article class="card popular">
           <div class="badge">Popular</div>
-          <img class="logo"
-          style="height:36px;margin:8px auto 14px"
-
-               src="logos/fino-36.png"
-               srcset="logos/fino-36.png 1x, logos/fino-72.png 2x"
-               width="36" height="36"
-               alt="Fino.lk Logo"
-               loading="lazy" decoding="async">
+          <img class="logo" src="logos/fino-36.png" srcset="logos/fino-36.png 1x, logos/fino-72.png 2x"
+               width="36" height="36" alt="Fino.lk Logo" loading="lazy" decoding="async"
+               style="height:36px;margin:8px auto 14px">
           <h3>Fino.lk</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro offer: up to Rs. 20,000 at 0%</li>
@@ -149,13 +156,8 @@
 
         <!-- Oncredit -->
         <article class="card">
-          <img class="logo"
-          style="height:36px;margin:8px auto 14px"
-
-               src="logos/oncredit.png"
-               width="97" height="36"
-               alt="Oncredit Logo"
-               loading="lazy" decoding="async">
+          <img class="logo" src="logos/oncredit.png" width="97" height="36" alt="Oncredit Logo"
+               loading="lazy" decoding="async" style="height:36px;margin:8px auto 14px">
           <h3>Oncredit</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro 0% up to Rs. 50,000</li>
@@ -171,14 +173,9 @@
 
         <!-- Monigo -->
         <article class="card">
-          <img class="logo"
-          style="height:36px;margin:8px auto 14px"
-
-               src="logos/monigo-36.png"
-               srcset="logos/monigo-36.png 1x, logos/monigo-72.png 2x"
-               width="36" height="36"
-               alt="Monigo Logo"
-               loading="lazy" decoding="async">
+          <img class="logo" src="logos/monigo-36.png" srcset="logos/monigo-36.png 1x, logos/monigo-72.png 2x"
+               width="36" height="36" alt="Monigo Logo" loading="lazy" decoding="async"
+               style="height:36px;margin:8px auto 14px">
           <h3>Monigo</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Loan range: Rs. 3,000 – Rs. 150,000</li>
@@ -194,14 +191,9 @@
 
         <!-- CashX -->
         <article class="card">
-          <img class="logo"
-          style="height:36px;margin:8px auto 14px"
-
-               src="logos/cashx-36.png"
-               srcset="logos/cashx-36.png 1x, logos/cashx-72.png 2x"
-               width="36" height="36"
-               alt="CashX Logo"
-               loading="lazy" decoding="async">
+          <img class="logo" src="logos/cashx-36.png" srcset="logos/cashx-36.png 1x, logos/cashx-72.png 2x"
+               width="36" height="36" alt="CashX Logo" loading="lazy" decoding="async"
+               style="height:36px;margin:8px auto 14px">
           <h3>CashX</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro 0% up to Rs. 200,000</li>
@@ -217,14 +209,9 @@
 
         <!-- LoanPlus -->
         <article class="card">
-          <img class="logo"
-          style="height:36px;margin:8px auto 14px"
-
-               src="logos/loanplus-36.png"
-               srcset="logos/loanplus-36.png 1x, logos/loanplus-72.png 2x"
-               width="36" height="36"
-               alt="LoanPlus Logo"
-               loading="lazy" decoding="async">
+          <img class="logo" src="logos/loanplus-36.png" srcset="logos/loanplus-36.png 1x, logos/loanplus-72.png 2x"
+               width="36" height="36" alt="LoanPlus Logo" loading="lazy" decoding="async"
+               style="height:36px;margin:8px auto 14px">
           <h3>LoanPlus</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro 0% up to Rs. 200,000</li>
@@ -241,13 +228,13 @@
     </div>
   </section>
 
-  <!-- ======= MATCH ME ======= -->
+  <!-- MATCH ME -->
   <section id="dontsure" class="section cv">
     <div class="container center">
-      <h2 class="mt-0">Let us guide you to the right loan</h2>
+      <h2>Let us guide you to the right loan</h2>
       <p class="sub">Simple. Quick. Tailored suggestions.</p>
 
-      <div class="steps">
+      <div class="steps" aria-hidden="true">
         <div class="step"><div class="num">1</div><div class="muted">Answer a few quick questions</div></div>
         <div class="divider"></div>
         <div class="step"><div class="num">2</div><div class="muted">We compare multiple providers</div></div>
@@ -260,27 +247,27 @@
     </div>
   </section>
 
-  <!-- ======= HOW IT WORKS ======= -->
+  <!-- HOW IT WORKS -->
   <section id="how-it-works" class="section cv">
     <div class="container">
       <div class="center" style="margin-bottom:32px">
-        <h2 class="mt-0">How Online Loans Work in Sri Lanka (2025)</h2>
+        <h2>How Online Loans Work in Sri Lanka (2025)</h2>
         <p class="sub">Apply online and receive a decision quickly. Exact requirements and times vary by lender and eligibility.</p>
       </div>
 
       <div class="grid3">
         <div class="tile">
-          <img src="icons/form.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <img src="icons/form.svg" alt="" width="40" height="40">
           <h3>1. Complete a short form</h3>
           <p class="muted">No in‑person paperwork. Lenders may request additional information as needed.</p>
         </div>
         <div class="tile">
-          <img src="icons/approval.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <img src="icons/approval.svg" alt="" width="40" height="40">
           <h3>2. Quick verification</h3>
           <p class="muted">NIC and bank account checks are performed digitally. Decisions are typically fast but can vary.</p>
         </div>
         <div class="tile">
-          <img src="icons/cash.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <img src="icons/cash.svg" alt="" width="40" height="40">
           <h3>3. Funds to your bank</h3>
           <p class="muted">Approved funds are deposited to your Sri Lankan bank account. Some lenders offer same‑day disbursement.</p>
         </div>
@@ -288,39 +275,35 @@
     </div>
   </section>
 
-  <!-- ======= WHO CAN APPLY ======= -->
+  <!-- WHO CAN APPLY -->
   <section id="who-can-apply" class="section cv">
     <div class="container">
       <div class="center" style="margin-bottom:32px">
-        <h2 class="mt-0">Who Can Apply for an Online Loan?</h2>
+        <h2>Who Can Apply for an Online Loan?</h2>
         <p class="sub">Many adults in Sri Lanka may qualify for small loans. Eligibility criteria vary by lender.</p>
       </div>
 
       <div class="grid3">
         <div class="tile">
-          <img src="icons/id-card.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <img src="icons/id-card.svg" alt="" width="40" height="40">
           <h3>Sri Lankan NIC</h3>
           <p class="muted">A valid National Identity Card is required to verify your identity.</p>
         </div>
         <div class="tile">
-          <img src="icons/bank.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <img src="icons/bank.svg" alt="" width="40" height="40">
           <h3>Active Bank Account</h3>
           <p class="muted">A Sri Lankan bank account is needed to receive the funds.</p>
         </div>
         <div class="tile">
-          <img src="icons/age.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <img src="icons/age.svg" alt="" width="40" height="40">
           <h3>Age 18–60</h3>
           <p class="muted">Some lenders may have different age limits or additional criteria.</p>
         </div>
       </div>
-
-      <p class="center muted" style="max-width:780px;margin:32px auto 0">
-        Meeting these basic criteria can help you access introductory offers (including possible 0% for first‑time borrowers). Always check lender terms and costs before applying.
-      </p>
     </div>
   </section>
 
-  <!-- ======= ABOUT ======= -->
+  <!-- ABOUT -->
   <section id="about" class="section cv">
     <div class="container" style="max-width:900px">
       <h2>About Online Loans in Sri Lanka</h2>
@@ -334,17 +317,17 @@
         <li><strong style="color:#1e3a8a">Transparency:</strong> We highlight repayment periods, the maximum APR across listed products, and a representative example.</li>
         <li><strong style="color:#1e3a8a">Your choice:</strong> We’re a comparison website and <strong>not a lender</strong>. Always review the lender’s terms before applying.</li>
       </ul>
-      <p class="muted" style="font-size:14px">
+      <p style="color:#64748b;font-size:14px">
         Loans listed on FinSriLanka range approximately from <strong>Rs. 5,000 to Rs. 2,000,000</strong>, with terms from <strong>65 days to 60 months</strong>, depending on the provider.
       </p>
     </div>
   </section>
 
-  <!-- ======= FAQ ======= -->
+  <!-- FAQ -->
   <section id="faq" class="section light cv">
     <div class="container">
       <div class="center" style="margin-bottom:24px">
-        <h2 class="mt-0">Frequently Asked Questions</h2>
+        <h2>Frequently Asked Questions</h2>
         <p class="sub">Answers to common questions about online loans in Sri Lanka.</p>
       </div>
 
@@ -384,7 +367,7 @@
     </div>
   </section>
 
-  <!-- ======= POLICIES ======= -->
+  <!-- POLICIES -->
   <section id="policies" class="cv">
     <div class="wrap">
       <h2>Loan Information</h2>
@@ -403,12 +386,12 @@
         Check the repayment schedule, interest rate, and any applicable fees. 
         Do not take a loan if you are unsure about your ability to repay it on time.</p>
 
-      <p class="muted">Disclaimer: This website is for informational purposes only. We receive a commission for clicks on affiliate links. 
+      <p style="color:#555">Disclaimer: This website is for informational purposes only. We receive a commission for clicks on affiliate links. 
         Loan terms and application approvals are determined by the lenders and may change without notice.</p>
     </div>
   </section>
 
-  <!-- ======= FOOTER ======= -->
+  <!-- FOOTER -->
   <footer id="contact">
     <div class="container">
       <h3 style="margin:0 0 6px;color:#fff">FinSriLanka</h3>
