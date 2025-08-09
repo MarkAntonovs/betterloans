@@ -9,29 +9,18 @@
     --radius:22px; --radius-xl:28px; --capsule:2.5rem;
     --header-h:64px;
   }
-  /* --- Fix Lighthouse 'Deprecated heading size' (Best Practices) --- */
-/* Явно задаём размеры заголовков внутри sectioning-контекста,
-   чтобы не попадать под будущие изменения дефолтных размеров. */
-:where(header,main,footer,section,article,aside,nav) :where(h1){
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.1;
-  }
-  :where(header,main,footer,section,article,aside,nav) :where(h2){
-    font-size: clamp(24px, 3.5vw, 40px);
-    line-height: 1.2;
-  }
-  :where(header,main,footer,section,article,aside,nav) :where(h3){
-    font-size: clamp(18px, 2.2vw, 22px);
-    line-height: 1.3;
-  }
-  /* Если хочешь просто «заткнуть» ворнинг, вообще без изменения визуала:
-     раскомментируй строки ниже и закомментируй три правила выше.
-     Это заставит заголовки наследовать текущий размер из контейнера.
-  */
-  /*
-  :where(header,main,footer,section,article,aside,nav)
-    :where(h1,h2,h3,h4,h5,h6){ font-size: inherit; }
-  */
+  /* === Explicit heading sizes (fix Lighthouse "deprecated APIs") === */
+h1 { font-size: clamp(2.25rem, 1.2rem + 2.2vw, 3.0rem); line-height: 1.12; font-weight: 800; }
+h2 { font-size: clamp(1.75rem, 1.05rem + 1.4vw, 2.25rem); line-height: 1.18; font-weight: 800; }
+h3 { font-size: clamp(1.25rem, 1.0rem + 0.6vw, 1.5rem);  line-height: 1.25; font-weight: 700; }
+h4 { font-size: 1.125rem; line-height: 1.35; font-weight: 700; }
+h5 { font-size: 1rem;    line-height: 1.4;  font-weight: 600; }
+h6 { font-size: 0.875rem;line-height: 1.4;  font-weight: 600; }
+
+/* На всякий случай явно задаём те же размеры внутри section/article/nav/aside */
+:where(section, article, nav, aside) h1 { font-size: clamp(2.25rem, 1.2rem + 2.2vw, 3.0rem); }
+:where(section, article, nav, aside) h2 { font-size: clamp(1.75rem, 1.05rem + 1.4vw, 2.25rem); }
+:where(section, article, nav, aside) h3 { font-size: clamp(1.25rem, 1.0rem + 0.6vw, 1.5rem); }
   @media(max-width:768px){ :root{ --header-h:58px } }
 
   *{box-sizing:border-box}
