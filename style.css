@@ -1,5 +1,5 @@
- /* ======= THEME ======= */
- :root{
+/* ======= THEME ======= */
+:root{
     --bg-deep:#0f172a; --bg-deeper:#0b1224;
     --text:#0f172a; --muted:#64748b; --muted-2:#94a3b8;
     --white:#fff; --soft:#f6f7fb; --line:#e5eefc;
@@ -9,36 +9,28 @@
     --radius:22px; --radius-xl:28px; --capsule:2.5rem;
     --header-h:64px;
   }
-  /* === Explicit heading sizes (fix Lighthouse "deprecated APIs") === */
-h1 { font-size: clamp(2.25rem, 1.2rem + 2.2vw, 3.0rem); line-height: 1.12; font-weight: 800; }
-h2 { font-size: clamp(1.75rem, 1.05rem + 1.4vw, 2.25rem); line-height: 1.18; font-weight: 800; }
-h3 { font-size: clamp(1.25rem, 1.0rem + 0.6vw, 1.5rem);  line-height: 1.25; font-weight: 700; }
-h4 { font-size: 1.125rem; line-height: 1.35; font-weight: 700; }
-h5 { font-size: 1rem;    line-height: 1.4;  font-weight: 600; }
-h6 { font-size: 0.875rem;line-height: 1.4;  font-weight: 600; }
-/* Explicit heading sizes to avoid h1-in-section deprecation */
-h1{font-size:clamp(32px,6vw,48px);line-height:1.1}
-h2{font-size:clamp(24px,3.2vw,40px)}
-h3{font-size:clamp(18px,2.2vw,22px)}
-h4{font-size:16px}
-h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
-/* На всякий случай явно задаём те же размеры внутри section/article/nav/aside */
-:where(section, article, nav, aside) h1 { font-size: clamp(2.25rem, 1.2rem + 2.2vw, 3.0rem); }
-:where(section, article, nav, aside) h2 { font-size: clamp(1.75rem, 1.05rem + 1.4vw, 2.25rem); }
-:where(section, article, nav, aside) h3 { font-size: clamp(1.25rem, 1.0rem + 0.6vw, 1.5rem); }
   @media(max-width:768px){ :root{ --header-h:58px } }
-
+  
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:#fff}
   img{max-width:100%;display:block}
   a{color:inherit}
-
+  
   .container{max-width:1200px;margin:0 auto;padding:0 20px}
   .center{text-align:center}
   .cv{content-visibility:auto;contain-intrinsic-size:1px 1000px}
-
-  /* ======= HEADER (compact, fixed) ======= */
+  
+  /* ======= HEADINGS (фикс предупреждения Lighthouse) ======= */
+  h1{font-size:clamp(32px,6vw,48px);line-height:1.12;font-weight:800;margin:0 0 .5em}
+  h2{font-size:clamp(24px,3.2vw,40px);line-height:1.18;font-weight:800;margin:0 0 .5em}
+  h3{font-size:clamp(18px,2.2vw,22px);line-height:1.25;font-weight:700;margin:0 0 .5em}
+  h4{font-size:16px;line-height:1.35;font-weight:700;margin:0 0 .5em}
+  :where(section,article,nav,aside) h1{font-size:clamp(32px,6vw,48px)}
+  :where(section,article,nav,aside) h2{font-size:clamp(24px,3.2vw,40px)}
+  :where(section,article,nav,aside) h3{font-size:clamp(18px,2.2vw,22px)}
+  
+  /* ======= HEADER (fixed) ======= */
   header{
     position:fixed; inset:0 0 auto 0; z-index:50;
     background:rgba(15,23,42,.88);
@@ -64,8 +56,8 @@ h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
   @media(min-width:768px){ .nav{display:flex} }
   .menu-btn{background:none;border:0;cursor:pointer;display:inline-flex;line-height:0;padding:8px}
   @media(min-width:768px){ .menu-btn{display:none} }
-
-  /* Mobile dropdown (smooth, no layout jump) */
+  
+  /* Mobile dropdown — без layout‑прыжков */
   #mobile-menu{
     position:absolute; left:0; right:0; top:100%;
     background:rgba(15,23,42,.98);
@@ -73,6 +65,7 @@ h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
     box-shadow:0 16px 30px rgba(2,6,23,.28);
     overflow:hidden; max-height:0; opacity:0; visibility:hidden;
     transition:max-height .22s ease, opacity .18s ease, visibility 0s linear .22s;
+    will-change:max-height,opacity;
   }
   #mobile-menu.open{max-height:420px; opacity:1; visibility:visible; transition:max-height .26s ease, opacity .18s ease}
   #mobile-menu .container{padding:0 20px}
@@ -82,58 +75,59 @@ h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
   }
   #mobile-menu a:hover{color:#93c5fd}
   #mobile-menu a:last-child{border-bottom:0}
-
-  /* ======= SECTION BASES ======= */
+  
+  /* ======= SECTIONS ======= */
   section{scroll-margin-top:calc(var(--header-h) + 12px)}
   .section{padding:96px 0}
   .section.light{background:#f5f7fb}
-
+  
   /* ======= HERO ======= */
   .hero{
     min-height:100vh; padding:calc(var(--header-h) + 48px) 0 60px;
     background:linear-gradient(90deg,#0f172a,#1e293b); color:#fff; display:flex; align-items:center;
   }
   .hero-row{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-  .hero h1{font-size:48px;line-height:1.1;margin:0 0 18px;font-weight:800}
+  .hero h1{margin-bottom:18px}
   .hero .lead{color:#cbd5e1;font-size:18px;margin:0 0 26px}
   .btn{display:inline-block;background:var(--blue);color:#fff;font-weight:700;border-radius:12px;padding:12px 24px;text-decoration:none;transition:.2s}
   .btn:hover{background:var(--blue-700);transform:translateY(-1px)}
   .note{font-size:12px;color:#cbd5e1;margin-top:8px}
-
+  
   .glass-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .glass{
     background:rgba(255,255,255,.08);backdrop-filter:blur(6px);
     border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;text-align:center;transition:.2s;
   }
   .glass:hover{background:rgba(255,255,255,.14)}
-
+  
   /* ======= OFFERS ======= */
-  .section h2{font-size:40px;font-weight:800;margin:0 0 8px;color:var(--bg-deep)}
+  .section h2{color:var(--bg-deep)}
   .section .sub{color:#64748b;max-width:680px;margin:0 auto 40px}
   .offers{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
   .card{
     width:360px;background:#fff;border-radius:var(--radius-xl);box-shadow:var(--shadow);
     padding:24px;transition:transform .2s,box-shadow .2s;position:relative;border:1px solid transparent;
-    display:flex;flex-direction:column;min-height:340px;
+    display:flex;flex-direction:column;min-height:340px;will-change:transform,box-shadow;
   }
-  
-  /* Чуть темнее «серый» текст */
-.muted{color:#475569}           /* было #64748b */
-.disclaimer{color:#475569}      /* было #6b7280 */
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
   .card.popular{border:2px solid #2563eb}
   .badge{
     position:absolute;left:18px;top:-12px;background:#2563eb;color:#fff;font-weight:700;font-size:12px;
     border-radius:999px;padding:6px 10px;box-shadow:0 6px 18px rgba(37,99,235,.35)
   }
+  .logo{height:36px;margin:8px auto 14px;display:block}
   .card h3{font-size:20px;margin:10px 0 12px;color:#111827;text-align:center}
   .feat{margin:0 0 16px;color:#475569;font-size:14px}
   .feat li{display:flex;gap:8px;align-items:flex-start;margin:10px 0}
   .cta{margin-top:auto}
   .apply{display:block;width:100%;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700;text-align:center;text-decoration:none}
   .apply:hover{background:var(--blue-700)}
-  .disclaimer{margin-top:8px;color:#6b7280;font-size:12px;text-align:center}
-
+  .disclaimer{margin-top:8px;font-size:12px;text-align:center}
+  
+  /* Контраст — делаем текст темнее для автоматической проверки */
+  .muted{color:#475569}
+  .disclaimer,.sub{color:#475569}
+  
   /* ======= STEPS / TILES ======= */
   .steps{display:flex;gap:18px;justify-content:center;align-items:center;margin:26px 0}
   .step{display:flex;flex-direction:column;align-items:center}
@@ -142,8 +136,7 @@ h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
   .grid3{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
   .tile{width:360px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
   .tile h4{margin:8px 0 6px;font-size:18px}
-  .muted{color:#64748b}
-
+  
   /* ======= FAQ ======= */
   .faq-wrap{max-width:900px;margin:0 auto}
   details.faq{background:#fff;border-radius:var(--capsule);border:1px solid var(--line);box-shadow:0 6px 18px rgba(37,99,235,.08);padding:18px 22px}
@@ -154,18 +147,18 @@ h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
   .chev{width:22px;height:22px;flex-shrink:0;transition:transform .25s}
   details[open] .chev{transform:rotate(180deg)}
   .faq p{margin:12px 2px 2px;color:#475569;font-size:15px;line-height:1.6}
-
+  
   /* ======= POLICIES ======= */
   #policies{background:#f8f9fa;padding:56px 20px;border-top:1px solid #ddd}
   #policies .wrap{max-width:900px;margin:0 auto;color:#333}
   #policies h2{font-size:26px;margin:0 0 12px}
   #policies h3{font-size:20px;margin:18px 0 8px}
   #policies ul{padding-left:20px}
-
+  
   /* ======= FOOTER ======= */
   footer{background:var(--bg-deep);color:#cbd5e1;text-align:center;padding:36px 0}
   footer a{color:#cbd5e1}
-
+  
   /* ======= RESPONSIVE ======= */
   @media(max-width:1024px){
     .hero-row{grid-template-columns:1fr}
@@ -176,4 +169,10 @@ h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
     .hero h1{font-size:40px}
     .glass-grid{grid-template-columns:1fr}
     .card,.tile{width:100%}
+  }
+  
+  /* Reduced motion (немного заботы) */
+  @media (prefers-reduced-motion: reduce){
+    .card:hover{transform:none}
+    .nav a::after{transition:none}
   }
