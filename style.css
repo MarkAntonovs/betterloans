@@ -16,7 +16,12 @@ h3 { font-size: clamp(1.25rem, 1.0rem + 0.6vw, 1.5rem);  line-height: 1.25; font
 h4 { font-size: 1.125rem; line-height: 1.35; font-weight: 700; }
 h5 { font-size: 1rem;    line-height: 1.4;  font-weight: 600; }
 h6 { font-size: 0.875rem;line-height: 1.4;  font-weight: 600; }
-
+/* Explicit heading sizes to avoid h1-in-section deprecation */
+h1{font-size:clamp(32px,6vw,48px);line-height:1.1}
+h2{font-size:clamp(24px,3.2vw,40px)}
+h3{font-size:clamp(18px,2.2vw,22px)}
+h4{font-size:16px}
+h1,h2,h3,h4,h5,h6{font-weight:800;margin:0 0 .5em}
 /* На всякий случай явно задаём те же размеры внутри section/article/nav/aside */
 :where(section, article, nav, aside) h1 { font-size: clamp(2.25rem, 1.2rem + 2.2vw, 3.0rem); }
 :where(section, article, nav, aside) h2 { font-size: clamp(1.75rem, 1.05rem + 1.4vw, 2.25rem); }
@@ -111,6 +116,10 @@ h6 { font-size: 0.875rem;line-height: 1.4;  font-weight: 600; }
     padding:24px;transition:transform .2s,box-shadow .2s;position:relative;border:1px solid transparent;
     display:flex;flex-direction:column;min-height:340px;
   }
+  
+  /* Чуть темнее «серый» текст */
+.muted{color:#475569}           /* было #64748b */
+.disclaimer{color:#475569}      /* было #6b7280 */
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
   .card.popular{border:2px solid #2563eb}
   .badge{
