@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P3JBMP5M');</script>
+  <!-- Google Tag Manager (HEAD, без defer — как рекомендует Google) -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P3JBMP5M');
+  </script>
   <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8" />
@@ -15,7 +16,7 @@
   <meta name="description" content="Compare online loans in Sri Lanka from licensed providers. Digital application, fast decisions, and transparent costs. FinSriLanka is not a lender.">
   <link rel="canonical" href="https://finsrilanka.com/">
 
-  <!-- Social -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Compare Online Loans in Sri Lanka | FinSriLanka">
   <meta property="og:description" content="Compare licensed providers in Sri Lanka. Digital application and fast decisions (times vary by lender). Transparent terms and costs.">
   <meta property="og:image" content="https://finsrilanka.com/preview.png">
@@ -28,43 +29,29 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Preconnects -->
+  <!-- Preconnect / Prefetch (шрифты и GTM) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//www.google-analytics.com">
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
-  <!-- Fonts (swap) -->
+  <!-- Fonts: display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
-  <style>
-    :root{--header-h:64px}
-    h1{font-size:clamp(2.25rem,1.2rem + 2.2vw,3rem);line-height:1.12;font-weight:800;margin:0 0 .5em}
-    h2{font-size:clamp(1.75rem,1.05rem + 1.4vw,2.25rem);line-height:1.18;font-weight:800;margin:0 0 .5em}
-    h3{font-size:clamp(1.25rem,1rem + .6vw,1.5rem);line-height:1.25;font-weight:700;margin:0 0 .5em}
-    h4{font-size:1.125rem;line-height:1.35;font-weight:700;margin:0 0 .5em}
-    h5{font-size:1rem;line-height:1.4;font-weight:600;margin:0 0 .5em}
-    h6{font-size:.875rem;line-height:1.4;font-weight:600;margin:0 0 .5em}
-    :where(section,article,nav,aside) h1{font-size:clamp(2.25rem,1.2rem + 2.2vw,3rem)}
-    :where(section,article,nav,aside) h2{font-size:clamp(1.75rem,1.05rem + 1.4vw,2.25rem)}
-    :where(section,article,nav,aside) h3{font-size:clamp(1.25rem,1rem + .6vw,1.5rem)}
-    .sub{color:#334155} /* повышаем контраст на светлом фоне */
-    @media (max-width:768px){ :root{--header-h:58px} }
-  </style>
 
-
-  <!-- App styles -->
+  <!-- Styles -->
   <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css">
 
+  <!-- App JS -->
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- GTM noscript -->
+  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3JBMP5M" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <header>
     <div class="container nav-row">
@@ -96,30 +83,31 @@
   <section class="hero cv">
     <div class="container hero-row">
       <div>
-        <h1 style="font-size: 3xl;">Compare Top Online<br>Loans in Sri Lanka</h1>
-        <p class="lead">Get up to Rs. 200,000 from licensed providers. Introductory 0% interest offers may be available for first‑time borrowers. Digital application and fast decisions (times vary by lender).</p>
+        <h1>Compare Top Online<br>Loans in Sri Lanka</h1>
+        <p class="lead">Get up to Rs. 200,000 from licensed providers. Introductory 0% interest offers may be available for first-time borrowers. Digital application and fast decisions (times vary by lender).</p>
         <a href="#offer" class="btn">Find My Loan</a>
         <div class="note">FinSriLanka is a comparison website and is not a lender.</div>
       </div>
 
       <div class="glass-grid" aria-hidden="true">
+        <!-- иконки над фолдом БЕЗ lazy (они крошечные и нужны сразу) -->
         <div class="glass">
-          <img src="icons/file-description.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
+          <img src="icons/file-description.svg" alt="" width="40" height="40" style="margin:0 auto 10px" decoding="async">
           <div style="font-weight:700;color:#fff">Digital Application</div>
           <div style="color:#cbd5e1;font-size:14px">Basic ID and bank verification required</div>
         </div>
         <div class="glass">
-          <img src="icons/bolt.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
+          <img src="icons/bolt.svg" alt="" width="40" height="40" style="margin:0 auto 10px" decoding="async">
           <div style="font-weight:700;color:#fff">Fast Decisions</div>
           <div style="color:#cbd5e1;font-size:14px">Typical decisions within minutes (may vary)</div>
         </div>
         <div class="glass">
-          <img src="icons/currency-rupee.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
+          <img src="icons/currency-rupee.svg" alt="" width="40" height="40" style="margin:0 auto 10px" loading="lazy" decoding="async">
           <div style="font-weight:700;color:#fff">Intro 0% Offers</div>
-          <div style="color:#cbd5e1;font-size:14px">For first‑time borrowers where available</div>
+          <div style="color:#cbd5e1;font-size:14px">For first-time borrowers where available</div>
         </div>
         <div class="glass">
-          <img src="icons/shield-lock.svg" alt="" width="40" height="40" style="margin:0 auto 10px">
+          <img src="icons/shield-lock.svg" alt="" width="40" height="40" style="margin:0 auto 10px" loading="lazy" decoding="async">
           <div style="font-weight:700;color:#fff">Licensed Providers</div>
           <div style="color:#cbd5e1;font-size:14px">Always review lender terms</div>
         </div>
@@ -137,9 +125,7 @@
         <!-- Fino -->
         <article class="card popular">
           <div class="badge">Popular</div>
-          <img class="logo" src="logos/fino-36.png" srcset="logos/fino-36.png 1x, logos/fino-72.png 2x"
-               width="36" height="36" alt="Fino.lk Logo" loading="lazy" decoding="async"
-               style="height:36px;margin:8px auto 14px">
+          <img class="logo" src="logos/fino-36.png" srcset="logos/fino-36.png 1x, logos/fino-72.png 2x" width="36" height="36" alt="Fino.lk Logo" decoding="async">
           <h3>Fino.lk</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro offer: up to Rs. 20,000 at 0%</li>
@@ -155,8 +141,7 @@
 
         <!-- Oncredit -->
         <article class="card">
-          <img class="logo" src="logos/oncredit.png" width="97" height="36" alt="Oncredit Logo"
-               loading="lazy" decoding="async" style="height:36px;margin:8px auto 14px">
+          <img class="logo" src="logos/oncredit.png" width="97" height="36" alt="Oncredit Logo" loading="lazy" decoding="async">
           <h3>Oncredit</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro 0% up to Rs. 50,000</li>
@@ -172,9 +157,7 @@
 
         <!-- Monigo -->
         <article class="card">
-          <img class="logo" src="logos/monigo-36.png" srcset="logos/monigo-36.png 1x, logos/monigo-72.png 2x"
-               width="36" height="36" alt="Monigo Logo" loading="lazy" decoding="async"
-               style="height:36px;margin:8px auto 14px">
+          <img class="logo" src="logos/monigo-36.png" srcset="logos/monigo-36.png 1x, logos/monigo-72.png 2x" width="36" height="36" alt="Monigo Logo" loading="lazy" decoding="async">
           <h3>Monigo</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Loan range: Rs. 3,000 – Rs. 150,000</li>
@@ -190,9 +173,7 @@
 
         <!-- CashX -->
         <article class="card">
-          <img class="logo" src="logos/cashx-36.png" srcset="logos/cashx-36.png 1x, logos/cashx-72.png 2x"
-               width="36" height="36" alt="CashX Logo" loading="lazy" decoding="async"
-               style="height:36px;margin:8px auto 14px">
+          <img class="logo" src="logos/cashx-36.png" srcset="logos/cashx-36.png 1x, logos/cashx-72.png 2x" width="36" height="36" alt="CashX Logo" loading="lazy" decoding="async">
           <h3>CashX</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro 0% up to Rs. 200,000</li>
@@ -208,9 +189,7 @@
 
         <!-- LoanPlus -->
         <article class="card">
-          <img class="logo" src="logos/loanplus-36.png" srcset="logos/loanplus-36.png 1x, logos/loanplus-72.png 2x"
-               width="36" height="36" alt="LoanPlus Logo" loading="lazy" decoding="async"
-               style="height:36px;margin:8px auto 14px">
+          <img class="logo" src="logos/loanplus-36.png" srcset="logos/loanplus-36.png 1x, logos/loanplus-72.png 2x" width="36" height="36" alt="LoanPlus Logo" loading="lazy" decoding="async">
           <h3>LoanPlus</h3>
           <ul class="feat">
             <li><img src="icons/check.svg" width="20" height="20" alt="">Intro 0% up to Rs. 200,000</li>
@@ -241,7 +220,7 @@
         <div class="step"><div class="num">3</div><div class="muted">You choose the best match</div></div>
       </div>
 
-      <a href="https://clickcrafter.eu/loanme.lk/9is4591jin" class="btn">Start Matching Now →</a>
+      <a href="https://clickcrafter.eu/loanme.lk/9is4591jin" class="btn" data-aff-param="subid">Start Matching Now →</a>
       <p class="muted" style="margin-top:8px">Free to use. No obligation.</p>
     </div>
   </section>
@@ -256,19 +235,19 @@
 
       <div class="grid3">
         <div class="tile">
-          <img src="icons/form.svg" alt="" width="40" height="40">
+          <img src="icons/form.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
           <h3>1. Complete a short form</h3>
-          <p class="muted">No in‑person paperwork. Lenders may request additional information as needed.</p>
+          <p class="muted">No in-person paperwork. Lenders may request additional information as needed.</p>
         </div>
         <div class="tile">
-          <img src="icons/approval.svg" alt="" width="40" height="40">
+          <img src="icons/approval.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
           <h3>2. Quick verification</h3>
           <p class="muted">NIC and bank account checks are performed digitally. Decisions are typically fast but can vary.</p>
         </div>
         <div class="tile">
-          <img src="icons/cash.svg" alt="" width="40" height="40">
+          <img src="icons/cash.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
           <h3>3. Funds to your bank</h3>
-          <p class="muted">Approved funds are deposited to your Sri Lankan bank account. Some lenders offer same‑day disbursement.</p>
+          <p class="muted">Approved funds are deposited to your Sri Lankan bank account. Some lenders offer same-day disbursement.</p>
         </div>
       </div>
     </div>
@@ -284,17 +263,17 @@
 
       <div class="grid3">
         <div class="tile">
-          <img src="icons/id-card.svg" alt="" width="40" height="40">
+          <img src="icons/id-card.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
           <h3>Sri Lankan NIC</h3>
           <p class="muted">A valid National Identity Card is required to verify your identity.</p>
         </div>
         <div class="tile">
-          <img src="icons/bank.svg" alt="" width="40" height="40">
+          <img src="icons/bank.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
           <h3>Active Bank Account</h3>
           <p class="muted">A Sri Lankan bank account is needed to receive the funds.</p>
         </div>
         <div class="tile">
-          <img src="icons/age.svg" alt="" width="40" height="40">
+          <img src="icons/age.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
           <h3>Age 18–60</h3>
           <p class="muted">Some lenders may have different age limits or additional criteria.</p>
         </div>
@@ -308,11 +287,11 @@
       <h2>About Online Loans in Sri Lanka</h2>
       <p style="color:#334155;font-size:18px">
         <strong>FinSriLanka</strong> is a platform for comparing <strong>online loans in Sri Lanka</strong> from licensed providers.
-        Whether you’re looking for introductory 0% offers for first‑time borrowers or flexible repayment terms, we help you find options quickly.
+        Whether you’re looking for introductory 0% offers for first-time borrowers or flexible repayment terms, we help you find options quickly.
       </p>
       <ul style="color:#334155;line-height:1.7">
-        <li><strong style="color:#1e3a8a">Fast options:</strong> Many providers deliver decisions within minutes and may offer same‑day disbursement.</li>
-        <li><strong style="color:#1e3a8a">Compare in one place:</strong> View key terms side‑by‑side and go directly to the lender to apply.</li>
+        <li><strong style="color:#1e3a8a">Fast options:</strong> Many providers deliver decisions within minutes and may offer same-day disbursement.</li>
+        <li><strong style="color:#1e3a8a">Compare in one place:</strong> View key terms side-by-side and go directly to the lender to apply.</li>
         <li><strong style="color:#1e3a8a">Transparency:</strong> We highlight repayment periods, the maximum APR across listed products, and a representative example.</li>
         <li><strong style="color:#1e3a8a">Your choice:</strong> We’re a comparison website and <strong>not a lender</strong>. Always review the lender’s terms before applying.</li>
       </ul>
@@ -336,7 +315,7 @@
             <span class="faq-title">Do I get 0% interest on my first loan?</span>
             <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M19 9l-7 7-7-7" stroke="#0b1427" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
-          <p>Some providers offer introductory 0% interest to first‑time borrowers. Availability and limits vary by lender and eligibility.</p>
+          <p>Some providers offer introductory 0% interest to first-time borrowers. Availability and limits vary by lender and eligibility.</p>
         </details>
 
         <details class="faq">
