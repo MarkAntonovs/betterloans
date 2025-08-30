@@ -120,3 +120,34 @@
     }catch(err){}
   }, {capture:true, passive:true});
 })();
+// ===== Mobile menu (как на главной)
+(function(){
+  const btn = document.getElementById('menu-toggle');
+  const mm  = document.getElementById('mobile-menu');
+  if(!btn || !mm) return;
+  btn.addEventListener('click', () => {
+    const opened = mm.classList.toggle('open');
+    btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    mm.setAttribute('aria-hidden', opened ? 'false' : 'true');
+  });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mm.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    mm.setAttribute('aria-hidden','true');
+  }));
+})();
+
+// ===== TOC (оглавление) для страниц с .prose
+(function(){
+  const toc = document.getElementById('toc');
+  const article = document.querySelector('.prose');
+  if(!toc || !article) return;
+
+  const headings = article.querySelectorAll('h2[id]');
+  headings.forEach(h => {
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent.replace(/^\d+\)\s*/, '');
+    toc.appendChild(a);
+  });
+})();
