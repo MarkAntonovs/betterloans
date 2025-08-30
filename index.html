@@ -108,8 +108,12 @@
     const sp=new URLSearchParams(location.search);
     function get(k){return sp.get(k)}
     function setCookie(n,v,d){try{const t=new Date();t.setTime(t.getTime()+d*864e5);document.cookie=n+'='+encodeURIComponent(v)+'; path=/; expires='+t.toUTCString()+'; SameSite=Lax'}catch(e){}}
-    function getCookie(name){const m=document.cookie.match(new RegExp('(?:^|; )'+name.replace(/([.$?*|{}()[\\]\\/^+])/g,'\\$1')+'=([^;]*)'));return m?decodeURIComponent(m[1]):''}
-    function store(k,v){if(v){try{localStorage.setItem(k,v)}catch(e){}try{sessionStorage.setItem(k,v)}catch(e){}setCookie(k,v,90)}}
+    function getCookie(name) {
+  // Экранируем спецсимволы корректным паттерном
+  const esc = name.replace(/([.*+?^${}()|[\]\\\/])/g, '\\$1');
+  const m = document.cookie.match(new RegExp('(?:^|; )' + esc + '=([^;]*)'));
+  return m ? decodeURIComponent(m[1]) : '';
+}    function store(k,v){if(v){try{localStorage.setItem(k,v)}catch(e){}try{sessionStorage.setItem(k,v)}catch(e){}setCookie(k,v,90)}}
     function readStored(k){return get(k)||getCookie(k)||sessionStorage.getItem(k)||localStorage.getItem(k)||''}
     function getAffParamForHost(h){const cfg=AFF_HOSTS.find(x=>h===x.host||h.endsWith('.'+x.host));return cfg?cfg.param:DEFAULT_PARAM}
     ['gclid','gbraid','wbraid','gclsrc','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{const v=get(k);if(v){store(k,v)}})
@@ -139,7 +143,40 @@
     },{capture:true,passive:true});
   })();
   </script>
-
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://finsrilanka.com/#org",
+        "name": "FinSriLanka",
+        "url": "https://finsrilanka.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://finsrilanka.com/favicon-96x96.png"
+        },
+        "sameAs": [
+          "mailto:finsrilanka@protonmail.com"
+        ],
+        "foundingDate": "2025"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://finsrilanka.com/#website",
+        "url": "https://finsrilanka.com/",
+        "name": "FinSriLanka",
+        "publisher": { "@id": "https://finsrilanka.com/#org" },
+        "inLanguage": "en",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://finsrilanka.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
   <script src="script.js" defer></script>
 </head>
 <body>
