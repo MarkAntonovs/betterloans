@@ -14,10 +14,11 @@
     --shadow:0 10px 26px rgba(2,6,23,.08);
     --shadow-lg:0 18px 34px rgba(2,6,23,.10);
   
-    /* container widths (меняется на очень широких экранах) */
+    /* container widths */
     --max-w:1180px;
   }
-
+  @media (min-width:1440px){ :root{ --max-w:1280px; } }
+  @media (min-width:1800px){ :root{ --max-w:1400px; } }
   
   /* ================
      GLOBAL / BASE
@@ -38,7 +39,6 @@
   
   .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
   .center{text-align:center}
-  .cv{content-visibility:auto;contain-intrinsic-size:1px 1000px}
   
   /* якоря не уезжают под фикс-шапку */
   :where(h1,h2,h3,[id]){ scroll-margin-top: calc(var(--header-h) + 16px); }
@@ -46,15 +46,12 @@
   /* ==========
      HEADER
      ========== */
-/* HEADER: твёрдый фон + не перекрывает контент */
-header{
-  position: sticky;         /* было fixed — из-за этого перекрывало */
-  top: 0;
-  z-index: 100;
-  background: #0f172a;      /* вместо rgba(...) — больше не полупрозрачная */
-  border-bottom:1px solid rgba(148,163,184,.18);
-  box-shadow:0 4px 14px rgba(2,6,23,.18);
-}
+  header{
+    position:sticky; top:0; z-index:100;
+    background:#0f172a; /* твёрдый, не прозрачный */
+    border-bottom:1px solid rgba(148,163,184,.18);
+    box-shadow:0 4px 14px rgba(2,6,23,.18);
+  }
   .nav-row{height:var(--header-h);display:flex;align-items:center;justify-content:space-between}
   .brand{font-size:24px;font-weight:800;letter-spacing:.2px;color:#fff;line-height:1}
   .brand span{color:#60a5fa}
@@ -67,7 +64,7 @@ header{
   .menu-btn{background:none;border:0;cursor:pointer;display:inline-flex;line-height:0;padding:8px}
   @media(min-width:768px){ .menu-btn{display:none} }
   
-  /* Mobile dropdown (без blur) */
+  /* Mobile dropdown */
   #mobile-menu{
     position:absolute; left:0; right:0; top:100%;
     background:#0f172a;
@@ -179,7 +176,7 @@ header{
   footer a{color:#cbd5e1}
   
   /* =================================
-     GUIDES ON HOMEPAGE (CARDS, COMPACT)
+     GUIDES ON HOMEPAGE (CARDS)
      ================================= */
   .guides-cards{
     display:grid;
@@ -187,48 +184,60 @@ header{
     gap:18px;margin-top:18px;
     justify-items:center;
   }
-  .guides-cards .card{
-    width:100%;max-width:360px;padding:18px;border-radius:18px;min-height:auto;
-  }
-  .guide-card-title{ font-size:22px; line-height:1.25; font-weight:800; margin:4px 0 8px; color:#0b1427; text-align:left }
-  .guide-meta{ display:flex; gap:8px; flex-wrap:wrap; margin:0 0 10px; }
-  .guide-chip{ font-size:12px; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#1e3a8a; }
-  .guides-cards p{ color:#475569; margin:0 0 12px }
-  .guides-cards .btn{ width:100%; text-align:center; }
+  .guides-cards .card{width:100%;max-width:360px;padding:18px;border-radius:18px;min-height:auto}
+  .guide-card-title{font-size:22px;line-height:1.25;font-weight:800;margin:4px 0 8px;color:#0b1427;text-align:left}
+  .guide-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+  .guide-chip{font-size:12px;padding:4px 8px;border-radius:999px;background:#eef2ff;color:#1e3a8a}
+  .guides-cards p{color:#475569;margin:0 0 12px}
+  .guides-cards .btn{width:100%;text-align:center}
   
   /* ====================
-     GUIDE ARTICLE PAGE
+     ARTICLE PAGES (унифицировано с money)
      ==================== */
-  /* верхняя плашка (не перекрывается шапкой) */
-  .article-hero{
-    background:#0f172a; color:#fff;
-    /* было: padding: calc(var(--header-h) + 40px) 0 22px; */
-    padding: 32px 0 22px;     /* достаточно обычного отступа */
-    border-bottom:1px solid rgba(255,255,255,.08);
+  .hero-skinny{min-height:200px;background:linear-gradient(90deg,#0f172a,#1e293b);color:#fff;display:flex;align-items:center;padding:32px 0 22px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .article-main{padding:26px 0 56px}
+  
+  /* сетка: слева TOC, справа контент — ПЛОТНЕЕ, без лишнего воздуха */
+  .page{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px}
+  @media (max-width:900px){ .page{grid-template-columns:1fr} }
+  
+  /* TOC: липкий только на десктопе */
+  .toc{
+    position:sticky; top:calc(var(--header-h) + 12px);
+    align-self:start; background:#fff; border:1px solid #e5e7eb;
+    border-radius:14px; padding:12px; display:grid; gap:8px
   }
-  .article-hero .breadcrumbs{ color:#93c5fd; font-size:14px; margin-bottom:8px }
-  .article-hero h1{ font-size:clamp(1.9rem,1.1rem + 1.2vw,2.3rem); margin:0 0 6px }
-  .article-hero .sub{ color:#cbd5e1 }
-  
-  .article-main{ padding:26px 0 56px }
-  .article-grid{ display:grid; grid-template-columns:minmax(0,760px) 320px; gap:26px }
-  
-  /* контентная колонка */
-  .prose{ max-width:760px }
-  .prose h2{ margin:22px 0 10px; font-size:24px; font-weight:800; color:#0b1427 }
-  .prose h3{ margin:14px 0 6px; font-size:18px; font-weight:700 }
-  .prose p, .prose li{ color:#334155; line-height:1.65 }
-  .prose ul{ margin:6px 0 12px 18px }
-  .prose .btn{ margin:10px 0 }
-  
-  /* правый сайдбар: саммари и оглавление карточками */
-  .side .card{
-    position:sticky; top:calc(var(--header-h) + 16px);
-    background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:14px;
-    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  @media (max-width:900px){
+    .toc{ position:static; top:auto; }  /* на мобилке НЕ липкий, не перекрывает текст */
   }
-  .quick{ list-style:none; margin:0 6px 8px 0; padding:0; color:#475569; font-size:14px }
-  .toc a{  padding:10px; border-radius:10px; color:#1e3a8a; text-decoration:none }
-  .toc a:hover{ background:#eef2ff }
-
+  .toc-title{font-weight:700;color:#0b1427;margin:2px 0 6px}
+  .toc a{display:block;padding:8px 10px;border-radius:10px;color:#1e3a8a;font-weight:600}
+  .toc a:hover{background:#eef2ff}
   
+  /* контент справа */
+  .prose{max-width:100%}
+  .prose h2{margin:18px 0 10px;font-size:24px;font-weight:800;color:#0b1427}
+  .prose h3{margin:12px 0 6px;font-size:18px;font-weight:700}
+  .prose p,.prose li{color:#334155;line-height:1.7}
+  .prose ul{margin:0 0 12px 18px}
+  .prose hr{border:none;border-top:1px solid #e5e7eb;margin:22px 0}
+  .notice{background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:12px 14px;color:#1e3a8a;font-weight:600}
+  .meta{font-size:13px}
+  
+  /* ========================= 
+     RESPONSIVE / PERFORMANCE
+     ========================= */
+  @media(max-width:1024px){
+    .hero-row{grid-template-columns:1fr}
+    .glass-grid{grid-template-columns:1fr 1fr}
+  } 
+  @media(max-width:640px){
+    header{box-shadow:0 6px 12px rgba(2,6,23,.18)}
+    .brand{font-size:22px}
+    .hero .lead{font-size:16px}
+    .glass-grid{grid-template-columns:1fr} 
+    .card,.tile{width:100%;box-shadow:none;border:1px solid var(--line)}
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
