@@ -2,13 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://finsrilanka.com/</loc>
-    <lastmod>2025-08-01</lastmod>
+    <lastmod>2025-08-31</lastmod>
     <priority>1.00</priority>
   </url>
-  
+
+  <url>
+    <loc>https://finsrilanka.com/guides/best-online-loans-sri-lanka.html</loc>
+    <lastmod>2025-08-31</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://finsrilanka.com/guides/instant-loans-sri-lanka.html</loc>
+    <lastmod>2025-08-31</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://finsrilanka.com/guides/online-loans-guide-sri-lanka.html</loc>
+    <lastmod>2025-08-31</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://finsrilanka.com/guides/how-to-get-a-loan-in-sri-lanka.html</loc>
+    <lastmod>2025-08-31</lastmod>
+    <priority>0.80</priority>
+  </url>
+
   <url>
     <loc>https://finsrilanka.com/how-we-make-money/</loc>
-    <lastmod>2025-08-30</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2025-08-31</lastmod>
+    <priority>0.80</priority>
   </url>
 </urlset>
