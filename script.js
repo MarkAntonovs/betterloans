@@ -1,117 +1,109 @@
-/* ===== Mobile menu toggle (общий для всех страниц) ===== */
-(function(){
+/* INP-first script: lazy GTM + cheap outbound clicks + passive listeners */
+(() => {
+  // util: addEventListener с поддержкой passive
+  const supportsPassive = (() => {
+    let p=false; try{ const o=Object.defineProperty({},"passive",{get(){p=true}});
+    window.addEventListener("t",null,o);}catch(_){}
+    return p;
+  })();
+  const on = (el,ev,fn,opts={}) =>
+    el && el.addEventListener(ev,fn,supportsPassive ? {...opts} : false);
+
+  /* ===== Mobile menu (без layout-тика) ===== */
   const btn = document.getElementById('menu-toggle');
   const mm  = document.getElementById('mobile-menu');
-  if(!btn || !mm) return;
-  btn.addEventListener('click', ()=>{
-    const open = mm.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    mm.setAttribute('aria-hidden', open ? 'false' : 'true');
-  });
-  mm.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-    mm.classList.remove('open');
-    btn.setAttribute('aria-expanded','false');
-    mm.setAttribute('aria-hidden','true');
-  }));
-})();
-
-/* ===== Smooth scroll for in-page TOC ===== */
-(function(){
-  document.addEventListener('click', (e)=>{
-    const a = e.target.closest('a[href^="#"]');
-    if(!a) return;
-    const id = decodeURIComponent(a.getAttribute('href')).slice(1);
-    const el = document.getElementById(id);
-    if(!el) return;
-    e.preventDefault();
-    el.scrollIntoView({behavior:'smooth', block:'start'});
-  });
-})();
-
-/* ===== (опц.) подсветка активного пункта TOC ===== */
-(function(){
-  const toc = document.querySelector('.toc');
-  if(!toc) return;
-  const links = Array.from(toc.querySelectorAll('a[href^="#"]'));
-  const map = new Map();
-  links.forEach(a=>{
-    const id = decodeURIComponent(a.getAttribute('href')).slice(1);
-    const el = document.getElementById(id);
-    if(el) map.set(el, a);
-  });
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(ent=>{
-      const a = map.get(ent.target);
-      if(!a) return;
-      if(ent.isIntersecting){
-        links.forEach(l=>l.classList.remove('active'));
-        a.classList.add('active');
-      }
-    });
-  }, {rootMargin:'-40% 0px -55% 0px', threshold:[0,1]});
-  map.forEach((_, el)=>obs.observe(el));
-})();
-
-/* ===== Affiliate link decorator (как было) ===== */
-(function(){
-  const AFF_HOSTS = [
-    {host:'clickcrafter.eu', param:'subid'},
-    {host:'murtov.com',      param:'subid'}
-  ];
-  const DEFAULT_PARAM = 'subid';
-  const sp = new URLSearchParams(location.search);
-  const get = k => sp.get(k);
-  function setCookie(name,value,days){
-    try{
-      const d = new Date(); d.setTime(d.getTime()+days*864e5);
-      document.cookie = name+'='+encodeURIComponent(value)+'; path=/; expires='+d.toUTCString()+'; SameSite=Lax';
-    }catch(e){}
+  if (btn && mm){
+    on(btn,'click', () => {
+      const open = mm.style.display === 'block';
+      mm.style.display = open ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      mm.setAttribute('aria-hidden',  open ? 'true'  : 'false');
+    }, {passive:true});
+    mm.querySelectorAll('a').forEach(a =>
+      on(a,'click',() => {
+        mm.style.display='none';
+        btn.setAttribute('aria-expanded','false');
+        mm.setAttribute('aria-hidden','true');
+      }, {passive:true})
+    );
   }
+
+  /* ===== Cookie utils (лёгкая версия) ===== */
   function getCookie(name){
-    const m = document.cookie.match(new RegExp('(?:^|; )'+name.replace(/([.$?*|{}()[\\]\\/+^])/g,'\\$1')+'=([^;]*)'));
+    const m = document.cookie.match(new RegExp('(?:^|; )'+
+      name.replace(/([.$?*|{}()[\]\\/+^])/g,'\\$1')+'=([^;]*)'));
     return m ? decodeURIComponent(m[1]) : '';
   }
-  function store(k,v){ if(v){ try{localStorage.setItem(k,v);}catch(e){} try{sessionStorage.setItem(k,v);}catch(e){} setCookie(k,v,90);} }
-  function readStored(k){ return get(k) || getCookie(k) || sessionStorage.getItem(k) || localStorage.getItem(k) || ''; }
-  function getAffParamForHost(h){
-    const cfg = AFF_HOSTS.find(x => h === x.host || h.endsWith('.'+x.host));
-    return cfg ? cfg.param : DEFAULT_PARAM;
-  }
-  ['gclid','gbraid','wbraid','gclsrc','utm_source','utm_medium','utm_campaign','utm_content','utm_term']
-    .forEach(k => { const v=get(k); if(v){ store(k,v); }});
-  const CLICK_ID = readStored('gclid') || readStored('gbraid') || readStored('wbraid');
 
-  function decorate(urlStr, overrideParam){
+  /* ===== Декорация партнёрских ссылок (чистая функция) ===== */
+  function decorateHref(href, extraParam){
     try{
-      const url = new URL(urlStr, location.href);
-      const host = url.hostname;
-      const isAff = AFF_HOSTS.some(x => host === x.host || host.endsWith('.'+x.host));
-      if(!isAff) return urlStr;
-      const paramName = overrideParam || getAffParamForHost(host);
-      if (CLICK_ID && !url.searchParams.has(paramName)) url.searchParams.set(paramName, CLICK_ID);
-      ['gclid','gbraid','wbraid'].forEach(k => {
-        const v = readStored(k);
-        if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
-      });
-      const utm = {
-        utm_source:   readStored('utm_source')   || 'google',
-        utm_medium:   readStored('utm_medium')   || 'cpc',
-        utm_campaign: readStored('utm_campaign') || '',
-        utm_content:  readStored('utm_content')  || '',
-        utm_term:     readStored('utm_term')     || ''
-      };
-      Object.entries(utm).forEach(([k,v])=>{ if(v && !url.searchParams.has(k)) url.searchParams.set(k,v); });
-      return url.toString();
-    }catch(e){ return urlStr; }
+      const u = new URL(href, location.href);
+      const gclid = getCookie('gclid') || getCookie('_gcl_aw') || getCookie('_gcl_au');
+      const utm   = getCookie('utm_source');
+      if (extraParam) u.searchParams.set('aff_param', extraParam);
+      if (gclid && !u.searchParams.has('gclid')) u.searchParams.set('gclid', gclid);
+      if (utm   && !u.searchParams.has('utm_source')) u.searchParams.set('utm_source', utm);
+      return u.toString();
+    }catch(_){ return href; }
   }
 
-  document.addEventListener('click', function(e){
-    const a = e.target.closest('a[href]');
+  /* ===== Пред-декорируем outbound-ссылки, чтобы клик был дешёвым ===== */
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[data-outbound], a.apply, a[data-aff]').forEach(a => {
+      const p = a.getAttribute('data-aff-param') || '';
+      a.href = decorateHref(a.getAttribute('href'), p);
+      a.setAttribute('rel','nofollow noopener noreferrer sponsored');
+      a.setAttribute('target','_blank'); // остаёмся на странице -> событие не теряется
+    });
+  });
+
+  /* ===== Очень лёгкий делегированный обработчик кликов ===== */
+  on(document,'click', (e) => {
+    const a = e.target && e.target.closest && e.target.closest('a');
     if (!a) return;
-    const href = a.getAttribute('href'); if (!href) return;
-    if (!/^https?:/i.test(href)) return;
-    const overrideParam = a.getAttribute('data-aff-param') || '';
-    const decorated = decorate(href, overrideParam);
-    if (decorated !== href) a.setAttribute('href', decorated);
-  }, {capture:true, passive:true});
+
+    // отсеиваем внутри-сайтовые
+    try{
+      const u = new URL(a.href, location.href);
+      if (u.origin === location.origin) return;
+    }catch(_){ return; }
+
+    // пушим событие — не блокируя навигацию
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'outbound_click',
+      link_url: a.href,
+      ts: Date.now()
+    });
+  }, {passive:true});
+
+  /* ===== Lazy-GTM: после первого действия или через 3000 мс ===== */
+  function loadGTM(){
+    if (loadGTM._done) return; loadGTM._done = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-P3JBMP5M';
+    document.head.appendChild(s);
+    (window.dataLayer = window.dataLayer || []).push({event:'gtm.lazy'});
+  }
+  const first = () => { loadGTM(); };
+  ['pointerdown','keydown','scroll','touchstart']
+    .forEach(ev => window.addEventListener(ev, first, {passive:true, once:true}));
+  setTimeout(loadGTM, 3000);
+
+  /* ===== Убираем 300 мс задержки тапа на iOS/Android ===== */
+  document.documentElement.style.touchAction = 'manipulation';
+
+  /* (необязательно) Помощник для отладки длинных задач */
+  setTimeout(() => {
+    if ('PerformanceObserver' in window) {
+      try{
+        const po = new PerformanceObserver(list => {
+          for (const e of list.getEntries())
+            if (e.duration > 120) console.debug('[LongTask]', Math.round(e.duration)+'ms', e.name||'');
+        });
+        po.observe({entryTypes:['longtask']});
+      }catch(_){}
+    }
+  }, 4000);
 })();
