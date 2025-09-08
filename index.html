@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager (HEAD, без defer — как рекомендует Google) -->
+  <!-- Google Tag Manager bootstrap (dataLayer stub). Реальный GTM-код подключай через GTM интерфейс или отдельным async-скриптом -->
   <script>window.dataLayer = window.dataLayer || [];</script>
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-    <!-- End Google Tag Manager -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Compare Online Loans in Sri Lanka | FinSriLanka</title>
   <meta name="description" content="Compare online loans in Sri Lanka from licensed providers. Digital application, fast decisions, and transparent costs. FinSriLanka is not a lender.">
   <link rel="canonical" href="https://finsrilanka.com/">
 
+  <!-- Internationalization / locale -->
+  <link rel="alternate" hreflang="en-lk" href="https://finsrilanka.com/">
+  <link rel="alternate" hreflang="x-default" href="https://finsrilanka.com/">
+  <meta property="og:locale" content="en_LK">
+  <meta name="geo.region" content="LK">
+
   <!-- Open Graph -->
+  <meta property="og:site_name" content="FinSriLanka">
   <meta property="og:title" content="Compare Online Loans in Sri Lanka | FinSriLanka">
   <meta property="og:description" content="Compare licensed providers in Sri Lanka. Digital application and fast decisions (times vary by lender). Transparent terms and costs.">
-  <meta property="og:image" content="https://finsrilanka.com/preview.AVIF">
+  <meta property="og:image" content="https://finsrilanka.com/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://finsrilanka.com/">
   <meta property="og:type" content="website">
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/AVIF" href="/favicon-96x96.AVIF" sizes="96x96">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compare Online Loans in Sri Lanka | FinSriLanka">
+  <meta name="twitter:description" content="Compare licensed providers in Sri Lanka. Digital application and fast decisions (times vary by lender).">
+  <meta name="twitter:image" content="https://finsrilanka.com/preview.png">
+
+  <!-- Favicons (PNG/SVG для широкой совместимости) -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.AVIF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- Preconnect / Prefetch -->
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="//www.google-analytics.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
@@ -37,7 +52,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
 
-  <!-- Base styles -->
+  <!-- Base styles (минимум — остальное в style.css) -->
   <style>
     :root{--header-h:64px}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#0b1427;background:#fff}
@@ -47,14 +62,21 @@
     .sub{color:#334155}
     .btn{display:inline-block;background:#1e40af;color:#fff;text-decoration:none;font-weight:600;border-radius:10px;padding:12px 18px}
     .btn:hover{background:#1e3a8a}
-    header{position:sticky;top:0;z-index:50;background:#0F172A;color:#fff}
+    header{position:sticky;top:0;z-index:50;background:#0F172A;color:#fff;border-bottom:1px solid rgba(148,163,184,.18)}
     .container{max-width:1120px;margin:0 auto;padding:0 16px}
     .nav-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{font-size:28px;color:#fff;text-decoration:none;font-weight:800} .brand span{color:#60a5fa}
-    .nav a{color:#fff;text-decoration:none;margin:0 10px;font-weight:600;opacity:.95} .nav a:hover{opacity:1}
+    .brand{font-size:28px;color:#fff;text-decoration:none;font-weight:800}
+    .brand span{color:#60a5fa}
+    .nav a{color:#fff;text-decoration:none;margin:0 10px;font-weight:600;opacity:.95}
+    .nav a:hover{opacity:1}
     .menu-btn{display:none;background:transparent;border:0}
     #mobile-menu{display:none;background:#0F172A}
-    @media (max-width:900px){.nav{display:none}.menu-btn{display:block}#mobile-menu .container{display:grid;gap:10px;padding-bottom:14px}#mobile-menu a{color:#cbd5e1;text-decoration:none}}
+    @media (max-width:900px){
+      .nav{display:none}
+      .menu-btn{display:block}
+      #mobile-menu .container{display:grid;gap:10px;padding-bottom:14px}
+      #mobile-menu a{color:#cbd5e1;text-decoration:none}
+    }
     .hero{min-height:calc(100vh - var(--header-h));background:linear-gradient(90deg,#0f172a,#1e293b);color:#fff;display:flex;align-items:center}
     .hero-row{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;padding:60px 16px}
     .lead{color:#cbd5e1;font-size:18px;margin:12px 0 20px}
@@ -89,74 +111,29 @@
     #policies .wrap{max-width:900px;margin:0 auto;padding:50px 16px}
     footer{background:#0f172a;color:#e5e7eb;text-align:center;padding:28px 0}
     footer a{color:#93c5fd}
-    @media (max-width:900px){.hero-row{grid-template-columns:1fr}.glass-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:900px){
+      .hero-row{grid-template-columns:1fr}
+      .glass-grid{grid-template-columns:1fr 1fr}
+    }
   </style>
 
   <!-- App styles -->
   <link rel="preload" href="style.css" as="style">
-
   <link rel="stylesheet" href="style.css">
 
-  <!-- Декоратор партнёрских ссылок -->
-  <script>
-  (function(){
-    const AFF_HOSTS=[{host:'clickcrafter.eu',param:'subid'},{host:'murtov.com',param:'subid'}];
-    const DEFAULT_PARAM='subid';
-    const UTM_DEFAULTS={utm_source:'google',utm_medium:'cpc'};
-    const sp=new URLSearchParams(location.search);
-    function get(k){return sp.get(k)}
-    function setCookie(n,v,d){try{const t=new Date();t.setTime(t.getTime()+d*864e5);document.cookie=n+'='+encodeURIComponent(v)+'; path=/; expires='+t.toUTCString()+'; SameSite=Lax'}catch(e){}}
-    function getCookie(name) {
-  // Экранируем спецсимволы корректным паттерном
-  const esc = name.replace(/([.*+?^${}()|[\]\\\/])/g, '\\$1');
-  const m = document.cookie.match(new RegExp('(?:^|; )' + esc + '=([^;]*)'));
-  return m ? decodeURIComponent(m[1]) : '';
-}    function store(k,v){if(v){try{localStorage.setItem(k,v)}catch(e){}try{sessionStorage.setItem(k,v)}catch(e){}setCookie(k,v,90)}}
-    function readStored(k){return get(k)||getCookie(k)||sessionStorage.getItem(k)||localStorage.getItem(k)||''}
-    function getAffParamForHost(h){const cfg=AFF_HOSTS.find(x=>h===x.host||h.endsWith('.'+x.host));return cfg?cfg.param:DEFAULT_PARAM}
-    ['gclid','gbraid','wbraid','gclsrc','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{const v=get(k);if(v){store(k,v)}})
-    const CLICK_ID=readStored('gclid')||readStored('gbraid')||readStored('wbraid');
-    function decorate(urlStr,overrideParam){
-      try{
-        const url=new URL(urlStr,location.href);const host=url.hostname;
-        const isAff=AFF_HOSTS.some(x=>host===x.host||host.endsWith('.'+x.host));if(!isAff)return urlStr;
-        const paramName=overrideParam||getAffParamForHost(host);
-        if(CLICK_ID&&!url.searchParams.has(paramName))url.searchParams.set(paramName,CLICK_ID);
-        ['gclid','gbraid','wbraid'].forEach(k=>{const v=readStored(k);if(v&&!url.searchParams.has(k))url.searchParams.set(k,v)});
-        const utm={utm_source:readStored('utm_source')||UTM_DEFAULTS.utm_source,utm_medium:readStored('utm_medium')||UTM_DEFAULTS.utm_medium,utm_campaign:readStored('utm_campaign')||'',utm_content:readStored('utm_content')||'',utm_term:readStored('utm_term')||''};
-        Object.entries(utm).forEach(([k,v])=>{if(v&&!url.searchParams.has(k))url.searchParams.set(k,v)});
-        return url.toString();
-      }catch(e){return urlStr}
-    }
-    document.addEventListener('click',function(e){
-      const a=e.target.closest('a[href]');if(!a)return;const href=a.getAttribute('href');if(!href)return;if(!/^https?:/i.test(href))return;
-      let overrideParam=a.getAttribute('data-aff-param')||'';const decorated=decorate(href,overrideParam);if(decorated!==href)a.setAttribute('href',decorated);
-      try{
-        const u=new URL(decorated,location.href);
-        if(AFF_HOSTS.some(x=>u.hostname===x.host||u.hostname.endsWith('.'+x.host))){
-          window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'aff_click',partner_host:u.hostname,link_url:u.toString(),click_id:CLICK_ID||null,link_text:(a.textContent||'').trim()});
-          a.setAttribute('target','_blank');a.setAttribute('rel','nofollow noopener noreferrer sponsored');
-        }
-      }catch(err){}
-    },{capture:true,passive:true});
-  })();
-  </script>
-<script type="application/ld+json">
+  
+  <!-- Structured data -->
+  <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
+    "@context":"https://schema.org",
+    "@graph":[
       {
         "@type": "Organization",
         "@id": "https://finsrilanka.com/#org",
         "name": "FinSriLanka",
         "url": "https://finsrilanka.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://finsrilanka.com/favicon-96x96.png"
-        },
-        "sameAs": [
-          "mailto:finsrilanka@protonmail.com"
-        ],
+        "logo": {"@type":"ImageObject","url":"https://finsrilanka.com/favicon-96x96.png"},
+        "sameAs": ["mailto:finsrilanka@protonmail.com"],
         "foundingDate": "2025"
       },
       {
@@ -164,44 +141,63 @@
         "@id": "https://finsrilanka.com/#website",
         "url": "https://finsrilanka.com/",
         "name": "FinSriLanka",
-        "publisher": { "@id": "https://finsrilanka.com/#org" },
-        "inLanguage": "en",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://finsrilanka.com/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "publisher": {"@id":"https://finsrilanka.com/#org"},
+        "inLanguage":"en",
+        "potentialAction": {"@type":"SearchAction","target":"https://finsrilanka.com/?q={search_term_string}","query-input":"required name=search_term_string"}
+      },
+      {
+        "@type":"CollectionPage",
+        "@id":"https://finsrilanka.com/#guides-collection",
+        "name":"Loan guides",
+        "url":"https://finsrilanka.com/#guides",
+        "hasPart":{"@type":"ItemList","itemListElement":[
+          {"@type":"ListItem","position":1,"url":"https://finsrilanka.com/guides/best-online-loans-sri-lanka.html"},
+          {"@type":"ListItem","position":2,"url":"https://finsrilanka.com/guides/instant-loans-sri-lanka.html"},
+          {"@type":"ListItem","position":3,"url":"https://finsrilanka.com/guides/online-loans-guide-sri-lanka.html"},
+          {"@type":"ListItem","position":4,"url":"https://finsrilanka.com/guides/how-to-get-a-loan-in-sri-lanka.html"}
+        ]}
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://finsrilanka.com/#faq",
+        "mainEntity":[
+          {"@type":"Question","name":"Do I get 0% interest on my first loan?","acceptedAnswer":{"@type":"Answer","text":"Some providers offer introductory 0% interest to first-time borrowers. Availability and limits vary by lender and eligibility."}},
+          {"@type":"Question","name":"What documents do I need?","acceptedAnswer":{"@type":"Answer","text":"Typically, your NIC and a Sri Lankan bank account. Some lenders may request additional information such as phone verification or proof of income."}},
+          {"@type":"Question","name":"Is FinSriLanka safe?","acceptedAnswer":{"@type":"Answer","text":"We don’t collect applications. We connect you with providers. Always review the lender’s security, privacy policy and terms before applying."}},
+          {"@type":"Question","name":"What happens after I click “Apply”?","acceptedAnswer":{"@type":"Answer","text":"You will be redirected to the lender’s website to complete your application. Decisions and terms are provided by the lender."}}
+        ]
       }
     ]
   }
   </script>
+
+  <!-- Ваш основной JS (меню/TOC и т.п.) -->
   <script src="script.js" defer></script>
 </head>
 <body>
 
-
   <header>
     <div class="container nav-row">
-      <a href="index.html" class="brand">Fin<span>SriLanka</span></a>
+      <a href="/" class="brand" rel="home">Fin<span>SriLanka</span></a>
 
       <nav class="nav" aria-label="Main">
         <a href="#offer">Offers</a><a href="#dontsure">Match Me</a><a href="#how-it-works">How it works</a>
         <a href="#who-can-apply">Eligibility</a><a href="#about">About</a><a href="#faq">FAQ</a>
-        <a href="#guides">Guides </a><a href="#policies">Policies</a><a href="#contact">Contact</a>
+        <a href="#guides">Guides</a><a href="#policies">Policies</a><a href="#contact">Contact</a>
       </nav>
 
       <button id="menu-toggle" class="menu-btn" type="button"
         aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-</button>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
     <div id="mobile-menu" aria-hidden="true">
       <div class="container">
         <a href="#offer">Offers</a><a href="#dontsure">Match Me</a><a href="#how-it-works">How it works</a>
         <a href="#who-can-apply">Eligibility</a><a href="#about">About</a><a href="#faq">FAQ</a>
-        <a href="#policies">Policies</a><a href="#contact">Contact</a>
+        <a href="#guides">Guides</a><a href="#policies">Policies</a><a href="#contact">Contact</a>
       </div>
     </div>
   </header>
@@ -260,7 +256,7 @@
             <li><img src="icons/check.svg" width="20" height="20" alt="">Typical decision: ~10 minutes</li>
           </ul>
           <div class="cta">
-            <a class="apply" href="https://clickcrafter.eu/fino.lk/9is4591jin">Apply Now</a>
+            <a class="apply" href="https://clickcrafter.eu/fino.lk/9is4591jin" data-aff-param="subid" rel="nofollow noopener noreferrer sponsored" target="_blank">Apply Now</a>
             <div class="disclaimer">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -276,7 +272,7 @@
             <li><img src="icons/check.svg" width="20" height="20" alt="">Typical approval within ~15 minutes</li>
           </ul>
           <div class="cta">
-            <a class="apply" href="https://clickcrafter.eu/oncredit.lk/9is4591jin">Apply Now</a>
+            <a class="apply" href="https://clickcrafter.eu/oncredit.lk/9is4591jin" data-aff-param="subid" rel="nofollow noopener noreferrer sponsored" target="_blank">Apply Now</a>
             <div class="disclaimer">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -292,7 +288,7 @@
             <li><img src="icons/check.svg" width="20" height="20" alt="">Most decisions within ~60 minutes</li>
           </ul>
           <div class="cta">
-            <a class="apply" href="https://clickcrafter.eu/monigo.lk/9is4591jin">Apply Now</a>
+            <a class="apply" href="https://clickcrafter.eu/monigo.lk/9is4591jin" data-aff-param="subid" rel="nofollow noopener noreferrer sponsored" target="_blank">Apply Now</a>
             <div class="disclaimer">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -308,7 +304,7 @@
             <li><img src="icons/check.svg" width="20" height="20" alt="">Typical decision: ~15 minutes</li>
           </ul>
           <div class="cta">
-            <a class="apply" href="https://clickcrafter.eu/cashx.lk/9is4591jin">Apply Now</a>
+            <a class="apply" href="https://clickcrafter.eu/cashx.lk/9is4591jin" data-aff-param="subid" rel="nofollow noopener noreferrer sponsored" target="_blank">Apply Now</a>
             <div class="disclaimer">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -324,7 +320,7 @@
             <li><img src="icons/check.svg" width="20" height="20" alt="">Typical decision: ~10 minutes (may vary)</li>
           </ul>
           <div class="cta">
-            <a class="apply" href="https://clickcrafter.eu/loanplus.lk/9is4591jin">Apply Now</a>
+            <a class="apply" href="https://clickcrafter.eu/loanplus.lk/9is4591jin" data-aff-param="subid" rel="nofollow noopener noreferrer sponsored" target="_blank">Apply Now</a>
             <div class="disclaimer">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -470,86 +466,53 @@
       </div>
     </div>
   </section>
+
+  <!-- GUIDES -->
   <section id="guides" class="section light cv">
     <div class="container center">
       <h2>Guides</h2>
       <p class="sub">Short, practical how-tos about online loans in Sri Lanka.</p>
-  
+
       <div class="guides-cards">
-        <!-- Guide A: Best Online Loans -->
         <article class="card">
           <h3 class="guide-card-title">
-            <a href="/guides/best-online-loans-sri-lanka.html">
-              Best Online Loans in Sri Lanka (2025)
-            </a>
+            <a href="/guides/best-online-loans-sri-lanka.html">Best Online Loans in Sri Lanka (2025)</a>
           </h3>
-          <div class="guide-meta">
-            <span class="guide-chip">Comparison</span>
-            <span class="guide-chip">Amounts & Terms</span>
-            <span class="guide-chip">Providers</span>
-          </div>
-          <p class="muted">
-            Quick side-by-side of top lenders: limits, terms, typical decision time — and how to apply today.
-          </p>
+          <div class="guide-meta"><span class="guide-chip">Comparison</span><span class="guide-chip">Amounts & Terms</span><span class="guide-chip">Providers</span></div>
+          <p class="muted">Quick side-by-side of top lenders: limits, terms, typical decision time — and how to apply today.</p>
           <a class="btn btn-block" href="/guides/best-online-loans-sri-lanka.html">Read the guide</a>
         </article>
-  
-        <!-- Guide B: Instant Loans -->
+
         <article class="card">
           <h3 class="guide-card-title">
-            <a href="/guides/instant-loans-sri-lanka.html">
-              Instant Loans in Sri Lanka — Same-Day Options & Tips
-            </a>
+            <a href="/guides/instant-loans-sri-lanka.html">Instant Loans in Sri Lanka — Same-Day Options & Tips</a>
           </h3>
-          <div class="guide-meta">
-            <span class="guide-chip">Same-day</span>
-            <span class="guide-chip">Fast approval</span>
-            <span class="guide-chip">Tips</span>
-          </div>
-          <p class="muted">
-            What “instant” really means, how to qualify faster, who’s quick, costs and pitfalls to avoid.
-          </p>
+          <div class="guide-meta"><span class="guide-chip">Same-day</span><span class="guide-chip">Fast approval</span><span class="guide-chip">Tips</span></div>
+          <p class="muted">What “instant” really means, how to qualify faster, who’s quick, costs and pitfalls to avoid.</p>
           <a class="btn btn-block" href="/guides/instant-loans-sri-lanka.html">Read the guide</a>
         </article>
-  
-        <!-- Guide C: Complete Guide -->
+
         <article class="card">
           <h3 class="guide-card-title">
-            <a href="/guides/online-loans-guide-sri-lanka.html">
-              Online Loans in Sri Lanka — Complete Guide (2025)
-            </a>
+            <a href="/guides/online-loans-guide-sri-lanka.html">Online Loans in Sri Lanka — Complete Guide (2025)</a>
           </h3>
-          <div class="guide-meta">
-            <span class="guide-chip">Types</span>
-            <span class="guide-chip">Eligibility</span>
-            <span class="guide-chip">Safety</span>
-          </div>
-          <p class="muted">
-            Types of online loans, documents, application steps, safety and alternatives — start here.
-          </p>
+          <div class="guide-meta"><span class="guide-chip">Types</span><span class="guide-chip">Eligibility</span><span class="guide-chip">Safety</span></div>
+          <p class="muted">Types of online loans, documents, application steps, safety and alternatives — start here.</p>
           <a class="btn btn-block" href="/guides/online-loans-guide-sri-lanka.html">Read the guide</a>
         </article>
-  
-        <!-- Guide D: How to Get a Loan -->
+
         <article class="card">
           <h3 class="guide-card-title">
-            <a href="/guides/how-to-get-a-loan-in-sri-lanka.html">
-              How to Get a Personal Loan in Sri Lanka (2025)
-            </a>
+            <a href="/guides/how-to-get-a-loan-in-sri-lanka.html">How to Get a Personal Loan in Sri Lanka (2025)</a>
           </h3>
-          <div class="guide-meta">
-            <span class="guide-chip">Eligibility</span>
-            <span class="guide-chip">Documents</span>
-            <span class="guide-chip">Approval tips</span>
-          </div>
-          <p class="muted">
-            Step-by-step: check requirements, prepare docs, apply online, increase approval chances.
-          </p>
+          <div class="guide-meta"><span class="guide-chip">Eligibility</span><span class="guide-chip">Documents</span><span class="guide-chip">Approval tips</span></div>
+          <p class="muted">Step-by-step: check requirements, prepare docs, apply online, increase approval chances.</p>
           <a class="btn btn-block" href="/guides/how-to-get-a-loan-in-sri-lanka.html">Read the guide</a>
         </article>
       </div>
     </div>
   </section>
+
   <!-- POLICIES -->
   <section id="policies" class="cv">
     <div class="wrap">
@@ -581,17 +544,12 @@
       <p style="font-size:14px;margin:0">Loan comparison website — we are not a lender.</p>
       <p style="font-size:14px;margin:0">We may receive compensation from partners when you click or apply. This does not affect the presentation of offers.</p>
       <p style="font-size:14px;margin:10px 0 0">Contact: <a href="mailto:finsrilanka@protonmail.com">finsrilanka@protonmail.com</a><br>Telegram: (@kaksncjx)</p>
-
-      <!-- НОВОЕ: аккуратная ссылка в футере -->
-      <p style="font-size:14px;margin:6px 0 0">
-        <a href="/how-we-make-money/">How we make money</a>
-      </p>
-
+      <p style="font-size:14px;margin:6px 0 0"><a href="/how-we-make-money/">How we make money</a></p>
       <p style="font-size:12px;margin:14px 0 0">© 2025 FinSriLanka. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Меню: простая логика раскрытия -->
+  <!-- Небольшой полифил-тогглер меню на случай, если script.js не загрузится -->
   <script>
     (function(){
       const btn=document.getElementById('menu-toggle');
