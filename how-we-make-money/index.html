@@ -1,90 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-<!-- INP-safe: только dataLayer + preconnect; сам GTM загрузит /script.js (лениво) -->
-<script>window.dataLayer = window.dataLayer || [];</script>
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How We Make Money | FinSriLanka</title>
-  <meta name="description" content="Learn how FinSriLanka earns money. We use affiliate links and sponsorships, while keeping editorial independence for fair comparisons.">
-  <link rel="canonical" href="https://finsrilanka.com/how-we-make-money.html">
+  <meta name="description" content="Full transparency about affiliate links, sponsorships and our editorial independence at FinSriLanka.">
+  <link rel="canonical" href="https://finsrilanka.com/how-we-make-money/">
+  <meta name="robots" content="max-image-preview:large">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="How We Make Money | FinSriLanka">
-  <meta property="og:description" content="Affiliate disclosure and our editorial principles.">
+  <meta property="og:description" content="Affiliate disclosure, sponsored placements, and editorial independence.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://finsrilanka.com/how-we-make-money.html">
-  <meta property="og:image" content="https://finsrilanka.com/preview.png">
+  <meta property="og:url" content="https://finsrilanka.com/how-we-make-money/">
+  <meta property="og:image" content="https://finsrilanka.com/preview.AVIF">
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <script src="/script.js" defer></script>
-  
-  <!-- Styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "mainEntityOfPage": "https://finsrilanka.com/how-we-make-money",
-      "url": "https://finsrilanka.com/how-we-make-money",
-      "name": "How We Make Money",
-      "description": "Disclosure about affiliate relationships and how FinSriLanka earns commissions.",
-      "isPartOf": { "@id": "https://finsrilanka.com/#website" },
-      "publisher": { "@id": "https://finsrilanka.com/#org" },
-      "inLanguage": "en"
-    }
-    </script>
+  {
+    "@context":"https://schema.org",
+    "@type":"AboutPage",
+    "mainEntityOfPage":"https://finsrilanka.com/how-we-make-money/",
+    "url":"https://finsrilanka.com/how-we-make-money/",
+    "name":"How We Make Money",
+    "inLanguage":"en",
+    "isPartOf": {"@id": "https://finsrilanka.com/#website"},
+    "publisher":{"@id":"https://finsrilanka.com/#org"}
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Header (тот же, что на главной) -->
   <header>
     <div class="container nav-row">
-      <a href="/index.html" class="brand">Fin<span>SriLanka</span></a>
-
+      <a href="/" class="brand">Fin<span>SriLanka</span></a>
       <nav class="nav" aria-label="Main">
-        <a href="#offer">Offers</a><a href="#dontsure">Match Me</a><a href="#how-it-works">How it works</a>
-        <a href="#who-can-apply">Eligibility</a><a href="#about">About</a><a href="#faq">FAQ</a>
-        <a href="#guides">Guides </a><a href="#policies">Policies</a><a href="#contact">Contact</a>
+        <a href="/#offer">Offers</a>
+        <a href="/#guides">Guides</a>
+        <a href="/#contact">Contact</a>
       </nav>
-
-      <button id="menu-toggle" class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+      <button id="menu-toggle" class="menu-btn" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
     <div id="mobile-menu" aria-hidden="true">
       <div class="container">
-        <a href="#offer">Offers</a><a href="#dontsure">Match Me</a><a href="#how-it-works">How it works</a>
-        <a href="#who-can-apply">Eligibility</a><a href="#about">About</a><a href="#faq">FAQ</a>
-        <a href="#policies">Policies</a><a href="#contact">Contact</a>
+        <a href="/#offer">Offers</a>
+        <a href="/#guides">Guides</a>
+        <a href="/#contact">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- HERO-узкая шапка -->
-  <section class="hero hero-skinny">
+  <section class="hero-skinny">
     <div class="container">
       <h1>How We Make Money</h1>
-      <p class="lead">Full transparency about affiliate links, sponsorships and our editorial independence.</p>
+      <p class="sub" style="color:#cbd5e1">Full transparency about affiliate links, sponsorships and our editorial independence.</p>
     </div>
   </section>
 
-  <!-- Контент -->
-  <main class="section">
+  <main class="article-main">
     <div class="container page">
       <aside class="toc" aria-label="Table of contents">
         <div class="toc-title">On this page</div>
@@ -97,97 +73,55 @@
       </aside>
 
       <article class="prose">
-        <p class="notice">
-          FinSriLanka is a comparison website. We are <strong>not a lender</strong>. We may receive a commission when you click an offer or apply on a partner website.
-        </p>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">›</span><a href="/#guides">Guides</a><span class="sep">›</span><span>How We Make Money</span>
+        </nav>
+
+        <p class="notice">FinSriLanka is a comparison website. We are <strong>not a lender</strong>. We may receive a commission when you click an offer or apply on a partner website.</p>
 
         <h2 id="model">1) Our business model</h2>
-        <p>
-          We earn money from <strong>affiliate programs</strong> and occasional <strong>sponsored placements</strong>.
-          These revenues allow us to keep the service free for users.
-        </p>
+        <p>We earn money from <strong>affiliate programs</strong> and occasional <strong>sponsored placements</strong>. These revenues allow us to keep the service free for users while investing in content and reviews. See current <a href="/#offer">offers</a> or browse our <a href="/#guides">guides</a>.</p>
 
         <h2 id="affiliate">2) Affiliate links</h2>
-        <p>
-          When you click “Apply” or similar buttons, the link may contain a tracking parameter (e.g. <code>subid</code>, <code>gclid</code>).
-          If you proceed on the lender website, we may receive a fee from the partner. This does <em>not</em> change the price or terms for you.
-        </p>
+        <p>When you click “Apply”, the link may contain tracking parameters. If you proceed on the lender website, we may receive a fee. This does <em>not</em> change the price or terms for you.</p>
 
         <h2 id="sponsored">3) Sponsored placements</h2>
-        <p>
-          Sometimes partners sponsor a card or banner. Such placements are clearly marked as <strong>“Sponsored”</strong>.
-          Sponsorship does not guarantee a positive review.
-        </p>
+        <p>Sometimes partners sponsor a card or a banner. Such placements are clearly marked as <strong>“Sponsored”</strong>. Sponsorship does not guarantee a positive review or higher ranking in guides.</p>
 
         <h2 id="editorial">4) Editorial independence</h2>
         <ul>
-          <li>Our listings aim to be accurate and useful for Sri Lanka users.</li>
-          <li>Partners cannot buy higher ratings in our copy.</li>
+          <li>We prioritise accuracy and usefulness for Sri Lankan users.</li>
+          <li>Partners cannot buy ratings in our copy.</li>
           <li>We update content and remove outdated offers when needed.</li>
         </ul>
 
         <h2 id="privacy">5) Tracking & privacy</h2>
-        <p>
-          We use Google Analytics to understand anonymized usage and decorate outbound links with UTM/GCLID for proper attribution.
-          See our <a href="/#policies">Policies</a> for details.
-        </p>
+        <p>We use basic analytics to understand anonymised usage and decorate outbound links with UTM/GCLID for attribution. For product details and rates, see <a href="/#policies">Policies</a>.</p>
+
+        <div class="inline-cta">
+          <a class="btn" href="/#offer">See Top Offers</a>
+          <a class="btn" href="/#guides">Explore Guides</a>
+        </div>
 
         <h2 id="contact">6) Contact</h2>
-        <p>
-          Questions about this disclosure? Email: <a href="mailto:finsrilanka@protonmail.com">finsrilanka@protonmail.com</a>.
-        </p>
+        <p>Questions about this disclosure? Email: <a href="mailto:finsrilanka@protonmail.com">finsrilanka@protonmail.com</a>.</p>
 
         <hr>
-        <div class="meta muted">
-          Last updated: <time datetime="2025-08-30">30 Aug 2025</time> · Publisher: FinSriLanka
-        </div>
+        <div class="meta muted">Last updated: <time datetime="2025-09-08">8 Sep 2025</time> · Publisher: FinSriLanka</div>
       </article>
     </div>
   </main>
 
-  <!-- Footer (как на главной) -->
   <footer id="contact">
     <div class="container">
       <h3 style="margin:0 0 6px;color:#fff">FinSriLanka</h3>
       <p style="font-size:14px;margin:0">Loan comparison website — we are not a lender.</p>
       <p style="font-size:14px;margin:0">We may receive compensation from partners when you click or apply. This does not affect the presentation of offers.</p>
-      <p style="font-size:14px;margin:10px 0 0">
-        Contact: <a href="mailto:finsrilanka@protonmail.com">finsrilanka@protonmail.com</a><br>
-        Telegram: (@kaksncjx)
-      </p>
-      <p style="font-size:14px;margin:6px 0 0">
-        <a href="/how-we-make-money/index.html">How we make money</a>
-      </p>
+      <p style="font-size:14px;margin:10px 0 0">Contact: <a href="mailto:finsrilanka@protonmail.com">finsrilanka@protonmail.com</a></p>
+      <p style="font-size:14px;margin:6px 0 0"><a href="/how-we-make-money/">How we make money</a></p>
       <p style="font-size:12px;margin:14px 0 0">© 2025 FinSriLanka. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- menu toggle -->
-  <script>
-    (function(){
-      const btn=document.getElementById('menu-toggle'), mm=document.getElementById('mobile-menu');
-      if(!btn||!mm) return;
-      btn.addEventListener('click',()=>{const o=mm.style.display==='block';mm.style.display=o?'none':'block';btn.setAttribute('aria-expanded',o?'false':'true');mm.setAttribute('aria-hidden',o?'true':'false');});
-      mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.style.display='none';btn.setAttribute('aria-expanded','false');mm.setAttribute('aria-hidden','true');}));
-    })();
-  </script>
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"AboutPage",
-    "name":"How We Make Money",
-    "url":"https://finsrilanka.com/how-we-make-money.html",
-    "inLanguage":"en",
-    "dateModified":"2025-08-30",
-    "publisher":{
-      "@type":"Organization",
-      "name":"FinSriLanka",
-      "url":"https://finsrilanka.com",
-      "logo":{"@type":"ImageObject","url":"https://finsrilanka.com/favicon-96x96.png"}
-    }
-  }
-  </script>
 </body>
 </html>
