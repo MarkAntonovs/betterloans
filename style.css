@@ -47,7 +47,7 @@
      HEADER
      ========== */
   header{
-    position:sticky; top:0; z-index:100;
+    position:sticky; top:0; z-index:200;
     background:#0f172a; /* твёрдый, не прозрачный */
     border-bottom:1px solid rgba(148,163,184,.18);
     box-shadow:0 4px 14px rgba(2,6,23,.18);
@@ -55,32 +55,42 @@
   .nav-row{height:var(--header-h);display:flex;align-items:center;justify-content:space-between}
   .brand{font-size:24px;font-weight:800;letter-spacing:.2px;color:#fff;line-height:1}
   .brand span{color:#60a5fa}
+  
+  /* desktop nav спрятана на мобилке */
   .nav{display:none;gap:22px;align-items:center}
   .nav a{color:#cbd5e1;font-weight:600;font-size:13.5px;line-height:1;padding:10px 2px;position:relative;transition:color .2s}
   .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .22s}
   .nav a:hover{color:#fff}
   .nav a:hover::after{transform:scaleX(1)}
-  @media(min-width:768px){ .nav{display:flex} }
-  .menu-btn{background:none;border:0;cursor:pointer;display:inline-flex;line-height:0;padding:8px}
-  @media(min-width:768px){ .menu-btn{display:none} }
+  @media (min-width:768px){ .nav{display:flex} }
   
-  /* Mobile dropdown */
+  /* burger: только на мобилке */
+  .menu-btn{
+    background:none;border:0;cursor:pointer;display:inline-flex;line-height:0;padding:8px;
+    position:relative; z-index:210;
+  }
+  @media (min-width:768px){ .menu-btn{display:none} }
+  
+  /* mobile dropdown */
   #mobile-menu{
-    position:absolute; left:0; right:0; top:100%;
+    position:fixed; left:0; right:0; top:var(--header-h);
     background:#0f172a;
-    border-bottom:1px solid rgba(148,163,184,.18);
+    border-top:1px solid rgba(148,163,184,.18);
     box-shadow:0 16px 30px rgba(2,6,23,.22);
-    overflow:hidden; max-height:0; opacity:0; visibility:hidden;
-    transition:max-height .22s ease, opacity .18s ease, visibility 0s linear .22s;
+    overflow:auto;
+    max-height:0; opacity:0; visibility:hidden;
+    z-index:205;
+    transition:max-height .25s ease, opacity .18s ease;
   }
-  #mobile-menu.open{max-height:420px; opacity:1; visibility:visible; transition:max-height .26s ease, opacity .18s ease}
-  #mobile-menu .container{padding:0 20px}
+  #mobile-menu.open{ max-height:70vh; opacity:1; visibility:visible; }
+  #mobile-menu .container{padding:0}
   #mobile-menu a{
-    display:block;color:#cbd5e1;padding:12px 0;
-    border-bottom:1px solid rgba(148,163,184,.16);font-weight:600;font-size:15px;
+    display:block; color:#cbd5e1; padding:14px 20px;
+    border-bottom:1px solid rgba(148,163,184,.12); font-weight:600; font-size:15px;
   }
-  #mobile-menu a:hover{color:#93c5fd}
   #mobile-menu a:last-child{border-bottom:0}
+  #mobile-menu a:hover{color:#93c5fd}
+  @media (min-width:768px){ #mobile-menu{display:none!important} }
   
   /* ===============
      SECTION FRAMES
@@ -194,10 +204,14 @@
   /* ====================
      ARTICLE PAGES (унифицировано с money)
      ==================== */
-  .hero-skinny{min-height:200px;background:linear-gradient(90deg,#0f172a,#1e293b);color:#fff;display:flex;align-items:center;padding:32px 0 22px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero-skinny{
+    min-height:200px;background:linear-gradient(90deg,#0f172a,#1e293b);
+    color:#fff;display:flex;align-items:center;padding:32px 0 22px;
+    border-bottom:1px solid rgba(255,255,255,.08)
+  }
   .article-main{padding:26px 0 56px}
   
-  /* сетка: слева TOC, справа контент — ПЛОТНЕЕ, без лишнего воздуха */
+  /* сетка: слева TOC, справа контент — ПЛОТНЕЕ */
   .page{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px}
   @media (max-width:900px){ .page{grid-template-columns:1fr} }
   
@@ -207,9 +221,8 @@
     align-self:start; background:#fff; border:1px solid #e5e7eb;
     border-radius:14px; padding:12px; display:grid; gap:8px
   }
-  @media (max-width:900px){
-    .toc{ position:static; top:auto; }  /* на мобилке НЕ липкий, не перекрывает текст */
-  }
+  @media (max-width:900px){ .toc{ position:static; top:auto; } }
+  
   .toc-title{font-weight:700;color:#0b1427;margin:2px 0 6px}
   .toc a{display:block;padding:8px 10px;border-radius:10px;color:#1e3a8a;font-weight:600}
   .toc a:hover{background:#eef2ff}
@@ -227,19 +240,20 @@
   /* ========================= 
      RESPONSIVE / PERFORMANCE
      ========================= */
-  @media(max-width:1024px){
+  @media (max-width:1024px){
     .hero-row{grid-template-columns:1fr}
     .glass-grid{grid-template-columns:1fr 1fr}
-  } 
-  @media(max-width:640px){
+  }
+  @media (max-width:640px){
     header{box-shadow:0 6px 12px rgba(2,6,23,.18)}
     .brand{font-size:22px}
     .hero .lead{font-size:16px}
-    .glass-grid{grid-template-columns:1fr} 
+    .glass-grid{grid-template-columns:1fr}
     .card,.tile{width:100%;box-shadow:none;border:1px solid var(--line)}
   }
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
+  
   /* Лучшая отзывчивость на тапы */
-.btn, .apply, a[role="button"] { touch-action: manipulation; }
+  .btn, .apply, a[role="button"]{ touch-action: manipulation; }

@@ -9,24 +9,30 @@
   const on = (el,ev,fn,opts={}) =>
     el && el.addEventListener(ev,fn,supportsPassive ? {...opts} : false);
 
-  /* ===== Mobile menu (без layout-тика) ===== */
-  const btn = document.getElementById('menu-toggle');
-  const mm  = document.getElementById('mobile-menu');
-  if (btn && mm){
-    on(btn,'click', () => {
-      const open = mm.style.display === 'block';
-      mm.style.display = open ? 'none' : 'block';
-      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      mm.setAttribute('aria-hidden',  open ? 'true'  : 'false');
-    }, {passive:true});
-    mm.querySelectorAll('a').forEach(a =>
-      on(a,'click',() => {
-        mm.style.display='none';
+    (function () {
+      const btn  = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+    
+      const close = () => {
+        menu.classList.remove('open');
         btn.setAttribute('aria-expanded','false');
-        mm.setAttribute('aria-hidden','true');
-      }, {passive:true})
-    );
-  }
+        menu.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      };
+    
+      btn.addEventListener('click', () => {
+        const opened = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+        menu.setAttribute('aria-hidden', opened ? 'false' : 'true');
+        document.body.style.overflow = opened ? 'hidden' : '';
+      });
+    
+      // закрываем при клике по пункту, Esc, ресайзе
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+      window.addEventListener('resize', () => { if (window.innerWidth >= 768) close(); });
+    })();
 
   /* ===== Cookie utils (лёгкая версия) ===== */
   function getCookie(name){
