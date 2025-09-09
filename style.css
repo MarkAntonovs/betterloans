@@ -158,7 +158,71 @@
   .guide-chip{font-size:12px;padding:4px 8px;border-radius:999px;background:#eef2ff;color:#1e3a8a}
   .guides-cards p{color:#475569;margin:0 0 12px}
   .guides-cards .btn{width:100%;text-align:center}
-  
+  /* ===== Guides CTA button (polished) ===== */
+.guides-cta{
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-xl{
+  padding: 14px 22px;
+  border-radius: 999px;              /* капсула */
+  font-weight: 800;
+  letter-spacing: .2px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  touch-action: manipulation;        /* быстрее тапы */
+}
+
+.btn-accent{
+  background: linear-gradient(180deg, var(--blue), var(--blue-700));
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow:
+    0 8px 18px rgba(30,64,175,.18),   /* внешняя мягкая тень */
+    inset 0 1px 0 rgba(255,255,255,.28); /* лёгкий «глянец» сверху */
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.btn-accent:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 24px rgba(30,64,175,.24),
+    inset 0 1px 0 rgba(255,255,255,.28);
+  filter: saturate(1.03);
+}
+
+.btn-accent:active{
+  transform: translateY(0);
+  box-shadow:
+    0 6px 14px rgba(30,64,175,.20),
+    inset 0 1px 0 rgba(255,255,255,.24);
+}
+
+.btn-accent svg{
+  transition: transform .18s ease;
+}
+
+.btn-accent:hover svg{
+  transform: translateX(3px);
+}
+
+/* доступность */
+.btn-accent:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 4px rgba(59,130,246,.28),
+    0 8px 18px rgba(30,64,175,.18),
+    inset 0 1px 0 rgba(255,255,255,.28);
+}
+
+/* компактнее на узких экранах */
+@media (max-width:480px){
+  .btn-xl{ padding: 13px 18px; font-weight: 800; }
+}
   /* ARTICLE PAGES (Guides & Money) */
   .hero-skinny{
     min-height:200px;background:linear-gradient(90deg,#0f172a,#1e293b);
@@ -238,3 +302,31 @@
   @media (prefers-reduced-motion: reduce) {
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
+  /* ===== Guides / Articles polish ===== */
+.breadcrumbs{font-size:14px;color:#64748b;margin:6px 0 12px}
+.breadcrumbs a{color:#1e3a8a;font-weight:600;text-decoration:none}
+.breadcrumbs a:hover{text-decoration:underline}
+.breadcrumbs .sep{margin:0 6px;color:#94a3b8}
+
+.inline-cta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
+.related-guides{margin-top:18px}
+.related-guides .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.related-guides .rg-card{border:1px solid #e5e7eb;border-radius:12px;padding:12px}
+.related-guides .rg-card a{color:#1e3a8a;font-weight:600;text-decoration:none}
+.related-guides .rg-card a:hover{text-decoration:underline}
+
+/* Guides hub */
+.guides-hero{background:linear-gradient(90deg,#0f172a,#1e293b);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.guides-hero .sub{color:#cbd5e1}
+.guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.guides-card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:16px;display:flex;flex-direction:column}
+.guides-card h3{margin:4px 0 8px;font-size:20px;font-weight:800;color:#0b1427}
+.guides-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 10px}
+.guides-card .chip{font-size:12px;padding:3px 8px;border-radius:999px;background:#eef2ff;color:#1e3a8a}
+.guides-card p{color:#475569;margin:0 0 12px}
+.guides-card .btn{width:100%;text-align:center}
+.guides-footer-pad{min-height:60vh} /* чтобы футер не «висел», когда гайдов мало */
+
+/* Кнопка View all guides на главной */
+.guides-cta{display:flex;justify-content:center;margin-top:18px}
+.guides-cta .btn{border-radius:999px;padding:12px 20px;font-weight:800}
