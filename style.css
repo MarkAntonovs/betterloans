@@ -480,3 +480,177 @@
 .view-all-wrap{ display:flex; justify-content:center; margin-top:20px; }
 .view-all{ display:inline-flex; align-items:center; gap:8px; background:#0f172a; color:#fff; font-weight:800; border-radius:999px; padding:12px 18px; }
 .view-all svg{ width:18px; height:18px; }
+/* ===== Guides hub: equal-height cards & stable layout ===== */
+.guides-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+  gap:18px;
+  align-items:stretch;          /* тянем карточки по высоте */
+  justify-items:stretch;
+}
+
+/* сама карточка */
+.gh-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);
+  display:flex;                 /* делаем флекс-контейнер */
+  flex-direction:column;
+  height:100%;                  /* растягиваем на высоту грида */
+}
+
+/* заголовок — компактнее, без скачков */
+.gh-card h3{
+  font-size:20px;
+  line-height:1.25;
+  margin:2px 0 8px;
+  word-break:break-word;
+}
+
+/* метки, переносы и стабильная высота зоны с чипсами */
+.gh-card .gh-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 10px;
+}
+
+/* чипсы */
+.gh-card .gh-tag{
+  font-size:12px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#eef2ff;
+  color:#1e3a8a;
+  white-space:nowrap;
+}
+
+/* описание */
+.gh-card p{
+  color:#334155;
+  margin:0 0 12px;
+}
+
+/* кнопка всегда прижата к низу карточки */
+.gh-card .btn{
+  margin-top:auto;              /* выталкиваем вниз */
+  align-self:flex-start;
+}
+
+/* если хочется ещё плотнее собрать карточки на мелких экранах */
+@media (max-width:640px){
+  .gh-card{padding:16px;border-radius:14px}
+}
+/* ===== Guides hub (scопировано, не ломает главную) ===== */
+#guides-hub { padding-top: 18px; padding-bottom: 28px; }
+
+/* Breadcrumbs (если уже есть — этот блок можно не добавлять) */
+.breadcrumbs{display:flex;align-items:center;gap:8px;font-size:14px;color:#94a3b8}
+.breadcrumbs a{color:#cbd5e1}
+.breadcrumbs .sep{opacity:.6}
+
+/* Заголовок секции хаба */
+.guides-hero{background:linear-gradient(90deg,#0f172a,#1e293b);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.guides-hero h1{margin:6px 0 6px;font-size:clamp(28px,2.5vw,36px);font-weight:800}
+.guides-hero .sub{color:#cbd5e1;margin:0}
+
+/* Грид карточек */
+.ghub-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:18px;
+  align-items:stretch;
+}
+@media (max-width:720px){
+  .ghub-grid{grid-template-columns:1fr}
+}
+
+/* Карточка гайда */
+.ghub-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 1px 2px rgba(2,6,23,.04);
+  display:flex; flex-direction:column; min-height:0;
+}
+.ghub-card h3{margin:4px 0 6px; font-size:20px; font-weight:800; color:#0b1427}
+.ghub-card .meta{display:flex; gap:8px; flex-wrap:wrap; margin:0 0 10px}
+.ghub-card .chip{
+  font-size:12px; padding:4px 8px; border-radius:999px;
+  background:#eef2ff; color:#1e3a8a; font-weight:600
+}
+.ghub-card p{color:#334155; margin:0 0 12px; line-height:1.55}
+.ghub-card .btn{margin-top:auto; align-self:flex-start}
+
+/* Бар с кнопками (CTA) */
+.ghub-cta{
+  display:flex; justify-content:center; gap:12px; flex-wrap:wrap;
+  margin-top:24px; padding:4px 0 6px;
+}
+.ghub-cta .btn{
+  padding:12px 20px; border-radius:14px; font-weight:800;
+}
+/* ===============================
+   GUIDES HUB (clean & scoped)
+   =============================== */
+
+   .guides-page{display:flex;flex-direction:column;min-height:100vh}
+   .guides-page main{flex:1}
+   
+   /* Hero */
+   .gh-hero{
+     background:linear-gradient(90deg,#0f172a,#1e293b);
+     color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
+   }
+   .gh-hero h1{margin:8px 0 6px;font-weight:800}
+   .gh-hero .sub{color:#cbd5e1;margin:0}
+   
+   /* Breadcrumbs в hero */
+   .gh-bc{display:flex;gap:10px;align-items:center;color:#cbd5e1;font-size:14px}
+   .gh-bc a{color:#93c5fd}
+   .gh-bc .sep{opacity:.6}
+   
+   /* Toolbar */
+   .gh-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0 10px}
+   .gh-search{
+     flex:1 1 280px;display:flex;align-items:center;gap:8px;
+     background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px;color:#64748b
+   }
+   .gh-search input{border:0;outline:0;width:100%;font:inherit;color:#0b1427}
+   .gh-filters{display:flex;flex-wrap:wrap;gap:8px}
+   .gh-chip{
+     background:#eef2ff;color:#1e3a8a;border:1px solid #c7d2fe;
+     padding:6px 10px;border-radius:999px;font-weight:700;font-size:12.5px;cursor:pointer;user-select:none
+   }
+   .gh-chip.is-on{background:#1e3a8a;color:#fff;border-color:#1e3a8a}
+   
+   /* CTA (сверху, под тулбаром) */
+   .gh-inline-cta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
+   .gh-inline-cta .btn{padding:12px 18px;font-weight:800;border-radius:12px}
+   
+   /* Grid & Cards */
+   .gh-grid{
+     display:grid;
+     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+     gap:18px; align-items:stretch; margin-top:14px;
+   }
+   .gh-card{
+     background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:18px;
+     box-shadow:0 1px 2px rgba(2,6,23,.04);
+     display:flex;flex-direction:column;height:100%;min-height:0
+   }
+   .gh-card h3{font-size:20px;line-height:1.25;margin:2px 0 8px;word-break:break-word}
+   .gh-meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+   .gh-tag{font-size:12px;padding:4px 8px;border-radius:999px;background:#eef2ff;color:#1e3a8a;white-space:nowrap}
+   .gh-card p{color:#334155;margin:0 0 12px}
+   .gh-card .btn{margin-top:auto;align-self:flex-start}
+   
+   /* Немного воздуха снизу, если гайдов мало */
+   .gh-footer-pad{padding-bottom:36px}
+   
+   @media (max-width:640px){
+     .gh-card{padding:16px;border-radius:14px}
+   }
