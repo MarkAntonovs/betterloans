@@ -81,6 +81,7 @@
       <nav class="nav" aria-label="Main">
         <a href="#offer">Offers</a>
         <a href="#dontsure">Match Me</a>
+        <a href="#calculator">Calculator</a>
         <a href="#faq">FAQ</a>
         <a href="/guides/guides.html">Guides</a>
         <a href="#policies">Policies</a>
@@ -97,14 +98,11 @@
       <div class="container">
         <a href="#offer">Offers</a>
         <a href="#dontsure">Match Me</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#who-can-apply">Eligibility</a>
-        <a href="#about">About</a>
+        <a href="#calculator">Calculator</a>
         <a href="#faq">FAQ</a>
         <a href="/guides/guides.html">Guides</a>
         <a href="#policies">Policies</a>
         <a href="#contact">Contact</a>
-        <a href="/how-we-make-money/">How we make money</a>
       </div>
     </div>
   </header>
@@ -415,7 +413,29 @@
     </div>
   </section>
 
-  </section>
+  <!-- CALCULATOR -->
+<section id="calculator" class="section light cv">
+  <div class="container center">
+    <h2>Loan Repayment & Offer Match</h2>
+    <p class="sub">Estimate repayment and find matching licensed providers in Sri Lanka.</p>
+
+    <div class="loan-calc">
+      <label>Loan amount (LKR):</label>
+      <input id="loanAmount" type="number" placeholder="e.g. 20000">
+
+      <label>Loan term (days):</label>
+      <input id="loanDays" type="number" placeholder="e.g. 90">
+
+      <label>Daily interest rate (%):</label>
+      <input id="loanRate" type="number" placeholder="e.g. 0.8">
+
+      <button class="btn" id="calcBtn">Calculate & Match Offers</button>
+      <div id="loanResult" class="calc-result"></div>
+
+      <div id="matchOffers" class="match-offers"></div>
+    </div>
+  </div>
+</section>
   <!-- FAQ -->
   <section id="faq" class="section light cv">
     <div class="container">
