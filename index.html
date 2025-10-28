@@ -151,7 +151,7 @@
   
       <div class="offers">
         <!-- Fino -->
-        <article class="offer-card" data-model="CPL">
+        <article class="offer-card" data-model="CPL" data-vendor="fino">
           <div class="offer-head">
             <div class="offer-logo">
               <img src="logos/fino-36.AVIF" srcset="logos/fino-36.AVIF 1x, logos/fino-72.AVIF 2x" width="36" height="36" alt="Fino.lk Logo" loading="lazy" decoding="async">
@@ -179,7 +179,7 @@
         </article>
   
         <!-- Oncredit -->
-        <article class="offer-card" data-model="CPS">
+        <article class="offer-card" data-model="CPS" data-vendor="oncredit">
           <div class="offer-head">
             <div class="offer-logo">
               <img src="logos/oncredit.AVIF" width="97" height="36" alt="Oncredit Logo" loading="lazy" decoding="async" style="width:auto;height:22px">
@@ -206,7 +206,7 @@
         </article>
   
         <!-- Monigo -->
-        <article class="offer-card" data-model="CPL">
+        <article class="offer-card" data-model="CPL" data-vendor="monigo">
           <div class="offer-head">
             <div class="offer-logo">
               <img src="logos/monigo-36.AVIF" srcset="logos/monigo-36.AVIF 1x, logos/monigo-72.AVIF 2x" width="36" height="36" alt="Monigo Logo" loading="lazy" decoding="async">
@@ -233,7 +233,7 @@
         </article>
   
         <!-- CashX -->
-        <article class="offer-card" data-model="CPS">
+        <article class="offer-card" data-model="CPS" data-vendor="cashx">
           <div class="offer-head">
             <div class="offer-logo">
               <img src="logos/cashx-36.AVIF" srcset="logos/cashx-36.AVIF 1x, logos/cashx-72.AVIF 2x" width="36" height="36" alt="CashX Logo" loading="lazy" decoding="async">
@@ -261,7 +261,7 @@
         </article>
   
         <!-- LoanPlus -->
-        <article class="offer-card" data-model="CPL">
+        <article class="offer-card" data-model="CPL" data-vendor="loanplus">
           <div class="offer-head">
             <div class="offer-logo">
               <img src="logos/loanplus-36.AVIF" srcset="logos/loanplus-36.AVIF 1x, logos/loanplus-72.AVIF 2x" width="36" height="36" alt="LoanPlus Logo" loading="lazy" decoding="async">
@@ -286,11 +286,12 @@
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
-
-        <article class="offer-card" data-model="CPL">
+  
+        <!-- Loanme -->
+        <article class="offer-card" data-model="CPL" data-vendor="loanme">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/loanme.AVIF.webp"  alt="LoanPlus Logo" loading="lazy" decoding="async">
+              <img src="logos/loanme.AVIF.webp" alt="Loanme Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">Loanme</div>
           </div>
@@ -312,11 +313,12 @@
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
-
-        <article class="offer-card" data-model="CPS">
+  
+        <!-- Credify -->
+        <article class="offer-card" data-model="CPS" data-vendor="credify">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/credify.AVIF.webp"  alt="LoanPlus Logo" loading="lazy" decoding="async">
+              <img src="logos/credify.AVIF.webp" alt="Credify Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">Credify</div>
           </div>
@@ -338,11 +340,12 @@
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
-
-        <article class="offer-card" data-model="CPS">
+  
+        <!-- SOScredit -->
+        <article class="offer-card" data-model="CPS" data-vendor="soscredit">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/soscredit.AVIF.png"  alt="LoanPlus Logo" loading="lazy" decoding="async">
+              <img src="logos/soscredit.AVIF.png" alt="SOScredit Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">SOScredit</div>
           </div>
@@ -364,11 +367,12 @@
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
-
-        <article class="offer-card" data-model="CPS">
+  
+        <!-- SOSO -->
+        <article class="offer-card" data-model="CPS" data-vendor="soso">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/SOSO.AVIF.png"  alt="LoanPlus Logo" loading="lazy" decoding="async">
+              <img src="logos/SOSO.AVIF.png" alt="SOSO Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">SOSO</div>
           </div>
@@ -628,6 +632,78 @@
       <p style="font-size:12px;margin:14px 0 0">© 2025 FinSriLanka. All rights reserved.</p>
     </div>
   </footer>
-
+  <script>
+    (function () {
+      // ===== НАСТРОЙКА =====
+      // сюда впиши тех, кто НЕ платит за Google Ads-трафик
+      const BLOCKED_FOR_ADS = ['soscredit', 'credify', 'soso'];  // пример, поменяй на своих
+    
+      // срок хранения метки «пришёл с рекламы»
+      const COOKIE_NAME = 'ads_src_google';
+      const COOKIE_DAYS = 30;
+    
+      // --- функции ---
+      function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+      }
+      function getCookie(name) {
+        return document.cookie.split('; ').reduce((acc, cur) => {
+          const [k, v] = cur.split('=');
+          return k === name ? decodeURIComponent(v || '') : acc;
+        }, '');
+      }
+      function fromGoogleAdsNow() {
+        try {
+          const url = new URL(location.href);
+          const qs = url.searchParams;
+          const ref = document.referrer ? new URL(document.referrer) : null;
+          if (qs.has('gclid') || qs.has('gbraid') || qs.has('wbraid')) return true;
+          const src = (qs.get('utm_source') || '').toLowerCase();
+          const med = (qs.get('utm_medium') || '').toLowerCase();
+          if (src.includes('google') && /(cpc|ppc|paid|sem)/.test(med)) return true;
+          if (ref && /(^|\.)google\./i.test(ref.hostname) && /(aclk|gclid|gbraid|wbraid)/i.test(ref.search)) return true;
+          return false;
+        } catch (e) { return false; }
+      }
+    
+      // --- определяем источник ---
+      let isAds = getCookie(COOKIE_NAME) === '1' || sessionStorage.getItem(COOKIE_NAME) === '1';
+      if (!isAds && fromGoogleAdsNow()) {
+        isAds = true;
+        setCookie(COOKIE_NAME, '1', COOKIE_DAYS);
+        try { sessionStorage.setItem(COOKIE_NAME, '1'); } catch(e) {}
+      }
+    
+      // --- фильтрация офферов ---
+      function filterOffers() {
+        if (!isAds) return;
+        const cards = document.querySelectorAll('.offer-card[data-vendor]');
+        let shown = 0;
+        cards.forEach(card => {
+          const vendor = (card.dataset.vendor || '').toLowerCase();
+          if (BLOCKED_FOR_ADS.includes(vendor)) {
+            card.remove();          // полностью убираем запрещённые
+          } else {
+            shown++;
+          }
+        });
+        if (shown === 0) {
+          const box = document.createElement('div');
+          box.className = 'no-offers';
+          box.style.cssText = 'margin:16px 0;padding:14px 16px;border-radius:10px;background:#0b1427;color:#cbd5e1;';
+          box.textContent = 'No offers available for Google Ads traffic.';
+          (document.querySelector('.offers') || document.body).appendChild(box);
+        }
+      }
+    
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', filterOffers);
+      } else {
+        filterOffers();
+      }
+    })();
+    </script>
 </body>
 </html>
