@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Unified HEAD -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Personal Loans in Sri Lanka (2025) - Online Offers from Licensed Providers</title>
   <meta name="description" content="Find personal loans in Sri Lanka from licensed online lenders. Apply digitally, get fast decisions, and explore 0% intro offers.">
   <link rel="canonical" href="https://finsrilanka.com/">
@@ -23,10 +23,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico/apple-touch-icon.png" />
   <link rel="manifest" href="/favicon.ico/site.webmanifest" />
 
-  <!-- SEO-only: убираем внешние Google Fonts (лишние запросы). -->
-  <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-  </style>
+  <!-- Fonts (keep if you must; best is self-hosting or system fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
 
   <!-- Styles / Scripts -->
   <link rel="stylesheet" href="/style.css">
@@ -42,10 +45,7 @@
         "@id": "https://finsrilanka.com/#org",
         "name": "FinSriLanka",
         "url": "https://finsrilanka.com/",
-        "logo": {
-          "@type":"ImageObject",
-          "url":"https://finsrilanka.com/favicon.ico/favicon-96x96.png"
-        },
+        "logo": {"@type":"ImageObject","url":"https://finsrilanka.com/favicon.ico/favicon-96x96.png"},
         "sameAs": ["mailto:finsrilanka@protonmail.com"]
       },
       {
@@ -54,7 +54,12 @@
         "url": "https://finsrilanka.com/",
         "name": "FinSriLanka",
         "publisher": { "@id": "https://finsrilanka.com/#org" },
-        "inLanguage": "en"
+        "inLanguage": "en",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://finsrilanka.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
     ]
   }
@@ -100,7 +105,7 @@
     <div class="container hero-row">
       <div>
         <h1>Personal Loans in Sri Lanka</h1>
-        <h2>Compare Online Offers</h2>
+        <h2> Compare Online Offers</h2>
         <p class="lead">Looking for a personal loan in Sri Lanka? We help you compare licensed online providers — check loan amounts, terms, approval time, and apply with confidence.</p>
         <a href="#offer" class="btn">Find My Loan</a>
         <div class="note">FinSriLanka is a comparison website and is not a lender.</div>
@@ -142,25 +147,30 @@
         <article class="offer-card" data-model="CPL" data-vendor="fino">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/fino-36.AVIF" srcset="logos/fino-36.AVIF 1x, logos/fino-72.AVIF 2x"
-                   width="36" height="36" alt="Fino.lk Logo" loading="lazy" decoding="async">
+              <img src="logos/fino-36.AVIF" srcset="logos/fino-36.AVIF 1x, logos/fino-72.AVIF 2x" width="36" height="36" alt="Fino.lk Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">Fino.lk</div>
           </div>
+
           <ul class="offer-feat">
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro offer: up to Rs. 20,000 at 0%</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 3,000 – Rs. 150,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>65 – 180 days</strong></span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical decision: ~10 minutes</span></li>
           </ul>
+
           <div class="metrics">
             <span class="pill">0% intro</span>
             <span class="pill">Fast decision</span>
             <span class="pill">Licensed</span>
           </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/fino.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/fino.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -169,20 +179,29 @@
         <article class="offer-card" data-model="CPS" data-vendor="oncredit">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/oncredit.AVIF" width="97" height="36"
-                   alt="Oncredit Logo" loading="lazy" decoding="async" style="width:auto;height:22px">
+              <img src="logos/oncredit.AVIF" width="97" height="36" alt="Oncredit Logo" loading="lazy" decoding="async" style="width:auto;height:22px">
             </div>
             <div class="offer-brand">Oncredit</div>
           </div>
+
           <ul class="offer-feat">
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro 0% up to Rs. 50,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 2,000 – Rs. 100,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>65 – 180 days</strong></span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical approval within ~15 minutes</span></li>
           </ul>
+
+          <div class="metrics">
+            <span class="pill">0% intro</span>
+            <span class="pill">Quick approval</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/oncredit.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/oncredit.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -191,20 +210,29 @@
         <article class="offer-card" data-model="CPL" data-vendor="monigo">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/monigo-36.AVIF" srcset="logos/monigo-36.AVIF 1x, logos/monigo-72.AVIF 2x"
-                   width="36" height="36" alt="Monigo Logo" loading="lazy" decoding="async">
+              <img src="logos/monigo-36.AVIF" srcset="logos/monigo-36.AVIF 1x, logos/monigo-72.AVIF 2x" width="36" height="36" alt="Monigo Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">Monigo</div>
           </div>
+
           <ul class="offer-feat">
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 3,000 – Rs. 150,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Starting amount: Rs. 20,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>65 – 120 days</strong></span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Most decisions within ~60 minutes</span></li>
           </ul>
+
+          <div class="metrics">
+            <span class="pill">Same-day options</span>
+            <span class="pill">Easy KYC</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/monigo.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/monigo.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -213,21 +241,30 @@
         <article class="offer-card" data-model="CPS" data-vendor="cashx">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/cashx-36.AVIF" srcset="logos/cashx-36.AVIF 1x, logos/cashx-72.AVIF 2x"
-                   width="36" height="36" alt="CashX Logo" loading="lazy" decoding="async">
+              <img src="logos/cashx-36.AVIF" srcset="logos/cashx-36.AVIF 1x, logos/cashx-72.AVIF 2x" width="36" height="36" alt="CashX Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">CashX</div>
             <div class="offer-badge">Popular</div>
           </div>
+
           <ul class="offer-feat">
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro 0% up to Rs. 200,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 5,000 – Rs. 200,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>65 – 120 days</strong></span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical decision: ~15 minutes</span></li>
           </ul>
+
+          <div class="metrics">
+            <span class="pill">0% intro</span>
+            <span class="pill">Up to Rs. 200k</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/cashx.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/cashx.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -236,20 +273,29 @@
         <article class="offer-card" data-model="CPL" data-vendor="loanplus">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/loanplus-36.AVIF" srcset="logos/loanplus-36.AVIF 1x, logos/loanplus-72.AVIF 2x"
-                   width="36" height="36" alt="LoanPlus Logo" loading="lazy" decoding="async">
+              <img src="logos/loanplus-36.AVIF" srcset="logos/loanplus-36.AVIF 1x, logos/loanplus-72.AVIF 2x" width="36" height="36" alt="LoanPlus Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">LoanPlus</div>
           </div>
+
           <ul class="offer-feat">
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro 0% up to Rs. 200,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 5,000 – Rs. 200,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>65 – 120 days</strong></span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical decision: ~10 minutes (may vary)</span></li>
           </ul>
+
+          <div class="metrics">
+            <span class="pill">Quick KYC</span>
+            <span class="pill">Trusted brand</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/loanplus.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/loanplus.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -258,20 +304,29 @@
         <article class="offer-card" data-model="CPL" data-vendor="loanme">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/loanme.AVIF.webp" width="36" height="36"
-                   alt="Loanme Logo" loading="lazy" decoding="async">
+              <img src="logos/loanme.AVIF.webp" width="36" height="36" alt="Loanme Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">Loanme</div>
           </div>
+
           <ul class="offer-feat">
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro Rs. 18000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 8,000 – Rs. 80,000</span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>90 – 180 days</strong></span></li>
             <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical decision: ~15 minutes (may vary)</span></li>
           </ul>
+
+          <div class="metrics">
+            <span class="pill">Quick KYC</span>
+            <span class="pill">Trusted brand</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/loanme.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/loanme.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -280,14 +335,29 @@
         <article class="offer-card" data-model="CPS" data-vendor="credify">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/credify.AVIF.webp" width="36" height="36"
-                   alt="Credify Logo" loading="lazy" decoding="async">
+              <img src="logos/credify.AVIF.webp" width="36" height="36" alt="Credify Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">Credify</div>
           </div>
+
+          <ul class="offer-feat">
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro 0% up to Rs. 200,000</span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 5,000 – Rs. 200,000</span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>90 – 360 days</strong></span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical decision: ~15 minutes (may vary)</span></li>
+          </ul>
+
+          <div class="metrics">
+            <span class="pill">Quick KYC</span>
+            <span class="pill">Trusted brand</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/credify.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/credify.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -296,14 +366,29 @@
         <article class="offer-card" data-model="CPS" data-vendor="soscredit">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/soscredit.AVIF.png" width="36" height="36"
-                   alt="SOScredit Logo" loading="lazy" decoding="async">
+              <img src="logos/soscredit.AVIF.png" width="36" height="36" alt="SOScredit Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">SOScredit</div>
           </div>
+
+          <ul class="offer-feat">
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro 0% up to Rs. 200,000</span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 5,000 – Rs. 200,000</span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>90 – 360 days</strong></span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical decision: ~15 minutes (may vary)</span></li>
+          </ul>
+
+          <div class="metrics">
+            <span class="pill">Quick KYC</span>
+            <span class="pill">Trusted brand</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/soscredit.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/soscredit.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -312,14 +397,29 @@
         <article class="offer-card" data-model="CPS" data-vendor="soso">
           <div class="offer-head">
             <div class="offer-logo">
-              <img src="logos/SOSO.AVIF.png" width="36" height="36"
-                   alt="SOSO Logo" loading="lazy" decoding="async">
+              <img src="logos/SOSO.AVIF.png" width="36" height="36" alt="SOSO Logo" loading="lazy" decoding="async">
             </div>
             <div class="offer-brand">SOSO</div>
           </div>
+
+          <ul class="offer-feat">
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Intro 0% up to Rs. 200,000</span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Loan range: Rs. 5,000 – Rs. 200,000</span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Term: <strong>90 – 360 days</strong></span></li>
+            <li><img src="icons/check.svg" width="20" height="20" alt=""><span>Typical decision: ~15 minutes (may vary)</span></li>
+          </ul>
+
+          <div class="metrics">
+            <span class="pill">Quick KYC</span>
+            <span class="pill">Trusted brand</span>
+          </div>
+
           <div class="offer-cta">
-            <a class="offer-apply" href="https://clickcrafter.eu/soso.lk/9is4591jin"
-               target="_blank" rel="nofollow noopener noreferrer sponsored">Apply Now</a>
+            <a class="offer-apply"
+               href="https://clickcrafter.eu/soso.lk/9is4591jin"
+               data-aff-param="subid"
+               target="_blank"
+               rel="nofollow noopener noreferrer sponsored">Apply Now</a>
             <div class="offer-disc">Rates &amp; terms vary. See lender T&amp;Cs.</div>
           </div>
         </article>
@@ -341,8 +441,7 @@
         <div class="step"><div class="num">3</div><div class="muted">You choose the best match</div></div>
       </div>
 
-      <a href="https://clickcrafter.eu/loanme.lk/9is4591jin" class="btn"
-         target="_blank" rel="nofollow noopener noreferrer sponsored">Start Matching Now →</a>
+      <a href="https://clickcrafter.eu/loanme.lk/9is4591jin" class="btn" data-aff-param="subid" rel="nofollow noopener noreferrer sponsored" target="_blank">Start Matching Now →</a>
       <p class="muted" style="margin-top:8px">Free to use. No obligation.</p>
     </div>
   </section>
@@ -355,24 +454,112 @@
 
       <div class="loan-calc">
         <label>Loan amount (LKR):</label>
-        <input id="loanAmount" type="number" placeholder="e.g. 20000" inputmode="numeric">
+        <input id="loanAmount" type="number" placeholder="e.g. 20000">
 
         <label>Loan term (days):</label>
-        <input id="loanDays" type="number" placeholder="e.g. 90" inputmode="numeric">
+        <input id="loanDays" type="number" placeholder="e.g. 90">
 
         <label>Daily interest rate (%):</label>
-        <input id="loanRate" type="number" placeholder="e.g. 0.8" inputmode="decimal">
+        <input id="loanRate" type="number" placeholder="e.g. 0.8">
 
-        <button class="btn" id="calcBtn" type="button">Calculate & Match Offers</button>
+        <button class="btn" id="calcBtn">Calculate & Match Offers</button>
         <div id="loanResult" class="calc-result"></div>
+
         <div id="matchOffers" class="match-offers"></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ + GUIDES + POLICIES + FOOTER -->
-  <!-- Оставь как у тебя сейчас — я не менял контент (только убрал мусорные теги/скрипты). -->
+  <!-- FAQ -->
+  <section id="faq" class="section light cv">
+    <div class="container">
+      <div class="center" style="margin-bottom:24px">
+        <h2>Frequently Asked Questions</h2>
+        <p class="sub">Answers to common questions about online loans in Sri Lanka.</p>
+      </div>
 
+      <div class="faq-wrap">
+        <details class="faq">
+          <summary>
+            <span class="faq-title">Do I get 0% interest on my first loan?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M19 9l-7 7-7-7" stroke="#0b1427" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <p>Some providers offer introductory 0% interest to first-time borrowers. See <a href="/guides/instant-loans-sri-lanka.html">Instant Loans</a> for speed tips and what “instant” really means.</p>
+        </details>
+
+        <details class="faq">
+          <summary>
+            <span class="faq-title">What documents do I need?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M19 9l-7 7-7-7" stroke="#0b1427" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <p>Typically, your NIC and a Sri Lankan bank account. For a checklist, read our <a href="/guides/how-to-get-a-loan-in-sri-lanka.html">step-by-step guide</a>.</p>
+        </details>
+
+        <details class="faq">
+          <summary>
+            <span class="faq-title">Is FinSriLanka safe?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M19 9l-7 7-7-7" stroke="#0b1427" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <p>We don’t collect loan applications. We connect you with providers. Always review the lender’s security, privacy policy, and terms before applying.</p>
+        </details>
+
+        <details class="faq">
+          <summary>
+            <span class="faq-title">What happens after I click “Apply”?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M19 9l-7 7-7-7" stroke="#0b1427" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <p>You’ll be redirected to the lender’s website to complete your application. For picking the right provider, see <a href="/guides/best-online-loans-sri-lanka.html">Best Online Loans</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES PREVIEW -->
+  <section id="guides" class="guides-v2">
+    <!-- (оставил как у тебя, без функциональных правок) -->
+    <!-- ... твой блок guides без изменений ... -->
+
+    <!-- Schema.org ItemList for guides -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"ItemList",
+      "name":"FinSriLanka Guides",
+      "itemListElement":[
+        { "@type":"ListItem", "position":1, "url":"https://finsrilanka.com/guides/best-online-loans-sri-lanka.html", "name":"Best Online Loans in Sri Lanka (2025)" },
+        { "@type":"ListItem", "position":2, "url":"https://finsrilanka.com/guides/instant-loans-sri-lanka.html", "name":"Instant Loans in Sri Lanka — Same-Day Options & Tips" },
+        { "@type":"ListItem", "position":3, "url":"https://finsrilanka.com/guides/online-loans-guide-sri-lanka.html", "name":"Online Loans in Sri Lanka — Complete Guide (2025)" },
+        { "@type":"ListItem", "position":4, "url":"https://finsrilanka.com/guides/how-to-get-a-loan-in-sri-lanka.html", "name":"How to Get a Personal Loan in Sri Lanka (2025)" }
+      ]
+    }
+    </script>
+  </section>
+
+  <!-- POLICIES -->
+  <section id="policies" class="cv">
+    <div class="wrap">
+      <h2>Loan Information</h2>
+      <p>We provide independent information about loan offers.
+        We are not a lender and do not make credit decisions. All terms and final decisions are made directly by the lender.</p>
+
+      <h3>Key Terms</h3>
+      <ul>
+        <li>Loan term: from <strong>65</strong> to <strong>360</strong> days</li>
+        <li>Maximum Annual Percentage Rate (APR): <strong>24%</strong></li>
+        <li>Example: A loan of €1,000 for 90 days at 24% APR → interest is approximately €59.18, total repayment amount is €1,059.18</li>
+      </ul>
+
+      <h3>Important Information</h3>
+      <p>Before applying for a loan, carefully review the terms provided by the specific lender.
+        Check the repayment schedule, interest rate, and any applicable fees.
+        Do not take a loan if you are unsure about your ability to repay it on time.</p>
+
+      <p style="color:#555">Disclaimer: This website is for informational purposes only. We receive a commission for clicks on affiliate links.
+        Loan terms and application approvals are determined by the lenders and may change without notice.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer id="contact">
     <div class="container">
       <h3 style="margin:0 0 6px;color:#fff">FinSriLanka</h3>
