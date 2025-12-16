@@ -79,7 +79,7 @@
     }
     return cid;
   }
-  const CID = getCid();
+  // Lazy CID: don't generate identifier during initial parse — create on demand
 
   // Only keep generic UTM params (no defaults, no Google IDs)
   const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
@@ -102,8 +102,9 @@
 
       const paramName=overrideParam||getAffParamForHost(host);
 
-      // add our own click id if not present
-      if(CID && !url.searchParams.has(paramName)) url.searchParams.set(paramName,CID);
+      // add our own click id if not present (generate lazily)
+      var cid = readStored('cid') || getCid();
+      if(cid && !url.searchParams.has(paramName)) url.searchParams.set(paramName,cid);
 
       // propagate existing UTM params if present in storage (no defaults)
       UTM_KEYS.forEach(k=>{
